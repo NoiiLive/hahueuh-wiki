@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting started — HahUeuh Wiki</title>
+<meta name="description" content="Install HahUeuh and understand what happens the first time you join a world.">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js"></script>
+<script src="/assets/site.js"></script>
+</head>
+<body>
+
+<header class="topbar"></header>
+
+<div class="shell">
+    <nav class="sidebar" aria-label="Wiki sections"></nav>
+
+    <div class="content">
+        <article>
+            <p class="crumbs"><a href="/">Home</a> / Getting started</p>
+            <h1>Getting started</h1>
+            <p class="lede">
+                Installing the mod, and what the world decides about your character in the first second
+                after you join.
+            </p>
+
+            <h2 id="install">Installation</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Minecraft</th><th>Loader</th><th>Mod version</th></tr></thead>
+                    <tbody>
+                        <tr><td>1.21.1</td><td>NeoForge</td><td><code>2.6.1</code></td></tr>
+                        <tr><td>1.20.1</td><td>Forge</td><td><code>2.6.1</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <ol>
+                <li>Install the matching loader for your Minecraft version.</li>
+                <li>Drop the HahUeuh jar into your <code>mods</code> folder.</li>
+                <li>Launch once so the config files are written, then stop the game.</li>
+                <li>Adjust anything you want in <a href="/wiki/configuration.html">the config</a>, and launch again.</li>
+            </ol>
+
+            <div class="note warn">
+                <strong>Install it on the server and every client.</strong>
+                HahUeuh is not server-only. A client without it cannot render the Book of Life, the ability
+                HUD, or any of the Authority effects, and will be kicked or desync badly.
+            </div>
+
+            <h2 id="first-join">Your first join</h2>
+            <p>
+                The moment you first enter a world, the mod rolls your character. This happens once and is
+                never repeated — dying, respawning, or even a Return by Death will not re-roll it.
+            </p>
+            <ul>
+                <li><strong>Race</strong> — Human, Elf or Half Elf, which sets your lifespan.</li>
+                <li><strong>Stats</strong> — six stats, each given a proficiency and a capacity. See <a href="/wiki/stats.html">Stats</a>.</li>
+                <li><strong>Magic</strong> — a chain of decreasing rolls decides how many schools you are born with. Most people get none.</li>
+                <li><strong>The Gate</strong> — Open if you were born with magic, Partly Open if you were not, with a small chance of being Defective instead. See <a href="/wiki/gate.html">The Gate</a>.</li>
+                <li><strong>Divine Protections</strong> — rolled per rarity tier. See <a href="/wiki/divine-protections.html">Divine Protections</a>.</li>
+            </ul>
+            <p>
+                None of this is visible in chat beyond a couple of lines. To actually read your character,
+                open the <a href="/wiki/book-of-life.html">Book of Life</a>.
+            </p>
+
+            <h2 id="first-things">What to do first</h2>
+            <h3>Check what you were born with</h3>
+            <p>
+                Open the Book of Life and look at your Gate and your stats. If your Gate is
+                <em>Partly Open</em> and you have no schools, you are not a caster this life — put your
+                points into what you did get.
+            </p>
+
+            <h3>Understand that you will rewind</h3>
+            <p>
+                Return by Death is on by default. The world checkpoints itself quietly as you play, and
+                when you die it rolls back — not just you, but the terrain, the mobs, the weather and
+                everyone else on the server. Read
+                <a href="/wiki/return-by-death.html">Return by Death</a> before you build anything you
+                would be upset to lose.
+            </p>
+
+            <div class="note tip">
+                <strong>Playing solo?</strong>
+                Return by Death is far more forgiving in singleplayer, because a checkpoint is only ever
+                taken while someone is online. On an empty server the mod deliberately skips them.
+            </div>
+
+            <h3>Find out whether you can cast</h3>
+            <p>
+                Even with no schools of your own, you can still reach magic through
+                <a href="/wiki/spirits.html">spirits</a> — a contracted spirit will fund spells from its
+                own school and its own reserves. Spirit Commune costs mana but not a magic school, so it
+                is open to nearly everyone.
+            </p>
+
+            <h2 id="troubleshooting">If something looks wrong</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Symptom</th><th>Likely cause</th></tr></thead>
+                    <tbody>
+                        <tr><td>Config changes do nothing</td><td>Server-scoped configs live in the world folder, not the global <code>config</code> directory. You may be editing a stale file — see <a href="/wiki/configuration.html">Configuration</a>.</td></tr>
+                        <tr><td>Abilities missing from the menu</td><td>Ability slots prune themselves when you lose the protection or authority that granted them.</td></tr>
+                        <tr><td>Bonus hearts vanish on rejoin</td><td>Fixed in recent versions. Update the mod.</td></tr>
+                        <tr><td>The world stutters every few minutes</td><td>That was checkpoint capture running on the main thread. Fixed — update the mod.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="page-nav"></div>
+        </article>
+        <aside class="toc" aria-label="On this page"></aside>
+    </div>
+</div>
+
+<footer class="site">
+    <div class="inner">
+        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configuration — HahUeuh Wiki</title>
+<meta name="description" content="Where the config files live and what each one controls.">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js"></script>
+<script src="/assets/site.js"></script>
+</head>
+<body>
+
+<header class="topbar"></header>
+
+<div class="shell">
+    <nav class="sidebar" aria-label="Wiki sections"></nav>
+
+    <div class="content">
+        <article>
+            <p class="crumbs"><a href="/">Home</a> / Reference / Configuration</p>
+            <h1>Configuration</h1>
+            <p class="lede">Where the config files live and what each one controls.</p>
+
+            <div class="note">
+                <strong>This page is still being written.</strong>
+                The structure below is in place; the prose is not finished yet.
+            </div>
+            <h2 id="where">Where the files live</h2>
+            <div class="note warn">
+                <strong>The location differs by loader.</strong>
+                On Forge the configs are COMMON-scoped and sit in the global <code>config</code> folder. On
+                NeoForge they are SERVER-scoped and live inside the world folder. Editing the wrong copy is
+                the most common reason a config change appears to do nothing.
+            </div>
+            <h2 id="files">The config files</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>File</th><th>Controls</th></tr></thead>
+                    <tbody>
+                        <tr><td>Main</td><td>Master toggles for whole features.</td></tr>
+                        <tr><td>Player</td><td>Stats, races, lifespan, aging.</td></tr>
+                        <tr><td>Magic</td><td>Gate rolls, strain thresholds, spell caps, starting magic.</td></tr>
+                        <tr><td>Magic (Yin)</td><td>Costs and cooldowns for the Yin school.</td></tr>
+                        <tr><td>Divine Protection</td><td>Rarity pools, unique list, and per-protection tuning.</td></tr>
+                        <tr><td>Spirit</td><td>Commune odds, contract limits, spirit stats.</td></tr>
+                        <tr><td>Return by Death</td><td>Checkpoint interval and notifications.</td></tr>
+                        <tr><td>Domain</td><td>Greed's Domain.</td></tr>
+                        <tr><td>Sloth</td><td>Unseen Hands.</td></tr>
+                        <tr><td>Greed</td><td>Remaining Greed abilities.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2 id="rarity-pools">Changing what can be rolled</h2>
+            <p>
+                The four rarity lists in the Divine Protection config <em>are</em> the rolling pool. Move an
+                id between lists to change how rare it is, or delete it from every list to remove it from
+                rolls entirely.
+            </p>
+
+
+            <div class="page-nav"></div>
+        </article>
+        <aside class="toc" aria-label="On this page"></aside>
+    </div>
+</div>
+
+<footer class="site">
+    <div class="inner">
+        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
+    </div>
+</footer>
+
+</body>
+</html>

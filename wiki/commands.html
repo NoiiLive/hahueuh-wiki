@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commands — HahUeuh Wiki</title>
+<meta name="description" content="The /rezero command tree \x{2014} for admins, testing, and roleplay setup.">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js"></script>
+<script src="/assets/site.js"></script>
+</head>
+<body>
+
+<header class="topbar"></header>
+
+<div class="shell">
+    <nav class="sidebar" aria-label="Wiki sections"></nav>
+
+    <div class="content">
+        <article>
+            <p class="crumbs"><a href="/">Home</a> / Reference / Commands</p>
+            <h1>Commands</h1>
+            <p class="lede">The /rezero command tree \x{2014} for admins, testing, and roleplay setup.</p>
+
+            <p>
+                All of these require permission level 2 (operator). Most take a player argument; the entity
+                forms accept any living entity, and will suggest whatever you are looking at.
+            </p>
+
+            <h2 id="gate">Gate</h2>
+            <pre><code>/rezero gate &lt;player&gt; get
+/rezero gate &lt;player&gt; set &lt;open|partly_open|damaged|destroyed|defective&gt;
+/rezero gate &lt;player&gt; defective get
+/rezero gate &lt;player&gt; defective set &lt;no_absorption|no_release&gt;
+/rezero gate &lt;player&gt; output   &lt;get|set &lt;amount&gt;&gt;
+/rezero gate &lt;player&gt; efficiency &lt;get|set &lt;amount&gt;&gt;
+/rezero gate &lt;player&gt; strain   &lt;get|set &lt;0-100&gt;&gt;</code></pre>
+            <div class="note tip">
+                <strong>What you set is what you get.</strong>
+                Divine Protections stamp the Gate when you receive them, but they do not hold it there.
+                A gate you set by command stays set.
+            </div>
+
+            <h2 id="character">Character</h2>
+            <pre><code>/rezero race     &lt;player&gt; &lt;get|set &lt;human|elf|half_elf&gt;&gt;
+/rezero age      &lt;player&gt; &lt;get|set &lt;amount&gt;&gt;
+/rezero spirit   &lt;player&gt; ...
+/rezero data     &lt;player&gt; preset &lt;name&gt;
+/rezero data     &lt;player&gt; reset</code></pre>
+            <div class="note warn">
+                <strong><code>preset</code> wipes first.</strong>
+                Applying a preset clears the target's magic, stats, authorities, spirits and protections
+                before it writes anything, so the preset is all they are left holding.
+            </div>
+
+            <h2 id="spirits">Spirits</h2>
+            <pre><code>/rezero spirit &lt;player&gt; get
+/rezero spirit &lt;player&gt; add    &lt;school&gt; &lt;rank&gt;
+/rezero spirit &lt;player&gt; add    named &lt;puck|beatrice&gt;
+/rezero spirit &lt;player&gt; remove &lt;school&gt; &lt;rank&gt;
+/rezero spirit &lt;player&gt; remove all
+/rezero spirit &lt;player&gt; affinity &lt;get|set &lt;value&gt;&gt;
+/rezero spirit &lt;player&gt; recall
+/rezero spirit &lt;player&gt; unanchor &lt;all|&lt;name&gt;&gt;</code></pre>
+
+
+            <div class="page-nav"></div>
+        </article>
+        <aside class="toc" aria-label="On this page"></aside>
+    </div>
+</div>
+
+<footer class="site">
+    <div class="inner">
+        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
+    </div>
+</footer>
+
+</body>
+</html>

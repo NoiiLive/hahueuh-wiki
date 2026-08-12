@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mod compatibility — HahUeuh Wiki</title>
+<meta name="description" content="Mods that HahUeuh has explicit handling for.">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js"></script>
+<script src="/assets/site.js"></script>
+</head>
+<body>
+
+<header class="topbar"></header>
+
+<div class="shell">
+    <nav class="sidebar" aria-label="Wiki sections"></nav>
+
+    <div class="content">
+        <article>
+            <p class="crumbs"><a href="/">Home</a> / Reference / Compatibility</p>
+            <h1>Mod compatibility</h1>
+            <p class="lede">Mods that HahUeuh has explicit handling for.</p>
+
+            <div class="note">
+                <strong>This page is still being written.</strong>
+                The structure below is in place; the prose is not finished yet.
+            </div>
+            <h2 id="handled">Explicitly handled</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Mod</th><th>Notes</th></tr></thead>
+                    <tbody>
+                        <tr><td>Distant Horizons</td><td>Rolled-back chunks are pushed back into its LOD store.</td></tr>
+                        <tr><td>Create</td><td>Handled during rollback.</td></tr>
+                        <tr><td>Better Combat</td><td>Explicit weapon attribute files so the mod's weapons are recognised.</td></tr>
+                        <tr><td>Epic Fight</td><td>Player data attachments are preserved across a rollback.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2 id="rollback">A note on rollback and other mods</h2>
+            <p>
+                Return by Death restores files on disk. Mods that keep their own databases open while the
+                server runs are skipped rather than corrupted.
+            </p>
+
+
+            <div class="page-nav"></div>
+        </article>
+        <aside class="toc" aria-label="On this page"></aside>
+    </div>
+</div>
+
+<footer class="site">
+    <div class="inner">
+        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Return by Death — HahUeuh Wiki</title>
+<meta name="description" content="The world checkpoints itself as you play. When you die, everything rewinds \x{2014} and only you remember.">
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/nav.js"></script>
+<script src="/assets/site.js"></script>
+</head>
+<body>
+
+<header class="topbar"></header>
+
+<div class="shell">
+    <nav class="sidebar" aria-label="Wiki sections"></nav>
+
+    <div class="content">
+        <article>
+            <p class="crumbs"><a href="/">Home</a> / Authorities / Return by Death</p>
+            <h1>Return by Death</h1>
+            <p class="lede">The world checkpoints itself as you play. When you die, everything rewinds \x{2014} and only you remember.</p>
+
+            <h2 id="how-it-works">How it works</h2>
+            <p>
+                While players are online the mod quietly takes checkpoints of the world at a randomised
+                interval. When a holder of Return by Death dies, the world is restored to the last
+                checkpoint: terrain, block changes, entities, the time of day, the weather, and every
+                other player's position and inventory.
+            </p>
+            <p>
+                You keep your memory of what happened. Nobody else does.
+            </p>
+
+            <div class="note warn">
+                <strong>This affects everyone on the server.</strong>
+                A rollback is not personal. Other players lose whatever they did since the checkpoint too.
+            </div>
+
+            <h2 id="checkpoints">Checkpoints</h2>
+            <ul>
+                <li>They are taken on a randomised timer, so the exact moment cannot be predicted or farmed.</li>
+                <li>No checkpoint is ever taken while the server is empty.</li>
+                <li>Capture runs in the background, so it should not stutter the game.</li>
+            </ul>
+            <p>
+                If a rollback appears not to have moved other players, the usual explanation is that the
+                checkpoint was simply very recent \x{2014} not that the restore failed.
+            </p>
+
+            <h2 id="whats-preserved">What survives a rewind</h2>
+            <p>
+                A handful of things are deliberately exempt, because rewinding them would be either
+                meaningless or actively broken:
+            </p>
+            <ul>
+                <li>Your own memory of the loop, and the Insanity that comes with it.</li>
+                <li>Pocket dimensions \x{2014} Door Crossing rooms and Al Shamak cells.</li>
+                <li>The world's monotonic game time, so command blocks and cooldowns are not corrupted.
+                    Only the visible time of day is rewound.</li>
+            </ul>
+
+            <h2 id="limits">Limits</h2>
+            <p>
+                Return by Death does not make you immortal in every sense \x{2014} it makes death a reset. Being
+                sealed by Ol Shamak, frozen by Lion's Heart, or killed in a way the mod cannot cancel all
+                still resolve first.
+            </p>
+
+            <h2 id="config">Turning it down</h2>
+            <p>
+                Everything above is configurable: the checkpoint interval, whether players are notified
+                when one is taken, and whether the Authority is available at all. See
+                <a href="/wiki/configuration.html">Configuration</a>.
+            </p>
+
+
+            <div class="page-nav"></div>
+        </article>
+        <aside class="toc" aria-label="On this page"></aside>
+    </div>
+</div>
+
+<footer class="site">
+    <div class="inner">
+        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
+    </div>
+</footer>
+
+</body>
+</html>
