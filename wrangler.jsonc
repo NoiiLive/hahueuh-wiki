@@ -1,0 +1,10 @@
+{
+  // Only used if this site is deployed through Cloudflare Workers rather than
+  // Cloudflare Pages. Pages needs no config at all and ignores this file.
+  "name": "hahueuh-wiki",
+  "compatibility_date": "2025-01-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
