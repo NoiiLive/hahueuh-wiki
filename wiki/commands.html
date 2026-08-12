@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Commands — HahUeuh Wiki</title>
-<meta name="description" content="The /rezero command tree \x{2014} for admins, testing, and roleplay setup.">
+<meta name="description" content="The complete /rezero command tree for the HahUeuh Minecraft mod.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,49 +20,126 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Reference / Commands</p>
             <h1>Commands</h1>
-            <p class="lede">The /rezero command tree \x{2014} for admins, testing, and roleplay setup.</p>
-
-            <p>
-                All of these require permission level 2 (operator). Most take a player argument; the entity
-                forms accept any living entity, and will suggest whatever you are looking at.
+            <p class="lede">
+                Everything lives under <code>/rezero</code>. Most branches need permission level 2;
+                the few that do not are marked.
             </p>
+
+            <div class="note tip">
+                <strong>Some commands take any entity, not just players.</strong>
+                Where the argument is an entity — <code>authority</code>, <code>protection</code>,
+                <code>magic</code> — you can pass a UUID, and the tab-completion will suggest whatever you
+                are currently looking at.
+            </div>
+
+            <h2 id="quick">Quick actions</h2>
+            <pre><code>/rezero checkpoint          take a Return by Death checkpoint immediately
+/rezero halfheart           set yourself to half a heart  (no permission needed)
+/rezero revive &lt;player&gt;     revive a player</code></pre>
+
+            <h2 id="authority">Authorities</h2>
+            <pre><code>/rezero authority &lt;entity&gt; returnbydeath acquired &lt;true|false&gt;
+/rezero authority &lt;entity&gt; domain        acquired &lt;true|false&gt;
+
+/rezero authority &lt;entity&gt; sloth acquired      &lt;true|false&gt;
+/rezero authority &lt;entity&gt; sloth witchfactor   &lt;true|false&gt;
+/rezero authority &lt;entity&gt; sloth variant       &lt;invisibleprovidence|unseenhands|sekhmet&gt;
+/rezero authority &lt;entity&gt; sloth compatibility &lt;get|set &lt;amount&gt;&gt;
+
+/rezero authority &lt;entity&gt; greed acquired      &lt;true|false&gt;
+/rezero authority &lt;entity&gt; greed witchfactor   &lt;true|false&gt;
+/rezero authority &lt;entity&gt; greed variant       &lt;lionsheart|corleonis|echidna&gt;
+/rezero authority &lt;entity&gt; greed compatibility &lt;get|set &lt;amount&gt;&gt;</code></pre>
+            <div class="note">
+                <strong>Granting may revoke someone else.</strong>
+                While <code>singleAuthorityHolder</code> is on — the default — giving an Authority to a new
+                holder takes it from the previous one.
+            </div>
 
             <h2 id="gate">Gate</h2>
             <pre><code>/rezero gate &lt;player&gt; get
 /rezero gate &lt;player&gt; set &lt;open|partly_open|damaged|destroyed|defective&gt;
 /rezero gate &lt;player&gt; defective get
 /rezero gate &lt;player&gt; defective set &lt;no_absorption|no_release&gt;
-/rezero gate &lt;player&gt; output   &lt;get|set &lt;amount&gt;&gt;
-/rezero gate &lt;player&gt; efficiency &lt;get|set &lt;amount&gt;&gt;
-/rezero gate &lt;player&gt; strain   &lt;get|set &lt;0-100&gt;&gt;</code></pre>
+/rezero gate &lt;player&gt; output     &lt;get | set &lt;amount&gt;&gt;
+/rezero gate &lt;player&gt; efficiency &lt;get | set &lt;amount&gt;&gt;
+/rezero gate &lt;player&gt; strain     &lt;get | set &lt;0-100&gt;&gt;</code></pre>
             <div class="note tip">
                 <strong>What you set is what you get.</strong>
                 Divine Protections stamp the Gate when you receive them, but they do not hold it there.
-                A gate you set by command stays set.
+                A Gate you set by command stays set.
             </div>
 
-            <h2 id="character">Character</h2>
-            <pre><code>/rezero race     &lt;player&gt; &lt;get|set &lt;human|elf|half_elf&gt;&gt;
-/rezero age      &lt;player&gt; &lt;get|set &lt;amount&gt;&gt;
-/rezero spirit   &lt;player&gt; ...
-/rezero data     &lt;player&gt; preset &lt;name&gt;
-/rezero data     &lt;player&gt; reset</code></pre>
-            <div class="note warn">
-                <strong><code>preset</code> wipes first.</strong>
-                Applying a preset clears the target's magic, stats, authorities, spirits and protections
-                before it writes anything, so the preset is all they are left holding.
-            </div>
+            <h2 id="magic">Magic</h2>
+            <pre><code>/rezero magic &lt;entity&gt; &lt;fire|water|earth|wind|yin|yang&gt; acquired &lt;true|false&gt;
+/rezero magic &lt;entity&gt; reroll</code></pre>
+
+            <h2 id="protection">Divine Protections</h2>
+            <pre><code>/rezero protection &lt;entity&gt; get
+/rezero protection &lt;entity&gt; reroll
+/rezero protection &lt;entity&gt; add    &lt;protection&gt;
+/rezero protection &lt;entity&gt; remove &lt;protection&gt;
+/rezero protection &lt;entity&gt; remove all</code></pre>
+            <p>
+                Both <code>add</code> and <code>remove</code> tab-complete — <code>add</code> from every
+                registered protection, <code>remove</code> from only the ones that entity actually holds.
+            </p>
+
+            <h2 id="stats">Stats</h2>
+            <pre><code>/rezero stats &lt;player&gt; &lt;stat&gt; get
+/rezero stats &lt;player&gt; &lt;stat&gt; max                      raise the level to its cap
+/rezero stats &lt;player&gt; &lt;stat&gt; set &lt;amount|max&gt;
+/rezero stats &lt;player&gt; &lt;stat&gt; proficiency &lt;get | set &lt;amount|max&gt;&gt;
+/rezero stats &lt;player&gt; &lt;stat&gt; capacity    &lt;get | set &lt;amount|max&gt;&gt;</code></pre>
+            <p>
+                <code>&lt;stat&gt;</code> is one of <code>tenacity</code>, <code>fortitude</code>,
+                <code>strength</code>, <code>reflexes</code>, <code>magic</code>, <code>combat</code>.
+            </p>
 
             <h2 id="spirits">Spirits</h2>
             <pre><code>/rezero spirit &lt;player&gt; get
-/rezero spirit &lt;player&gt; add    &lt;school&gt; &lt;rank&gt;
+/rezero spirit &lt;player&gt; add    &lt;school&gt; &lt;lesser|quasi|normal|great&gt;
 /rezero spirit &lt;player&gt; add    named &lt;puck|beatrice&gt;
 /rezero spirit &lt;player&gt; remove &lt;school&gt; &lt;rank&gt;
+/rezero spirit &lt;player&gt; remove named &lt;puck|beatrice&gt;
 /rezero spirit &lt;player&gt; remove all
-/rezero spirit &lt;player&gt; affinity &lt;get|set &lt;value&gt;&gt;
+/rezero spirit &lt;player&gt; affinity &lt;get | set &lt;value&gt;&gt;
 /rezero spirit &lt;player&gt; recall
-/rezero spirit &lt;player&gt; unanchor &lt;all|&lt;name&gt;&gt;</code></pre>
+/rezero spirit &lt;player&gt; unanchor &lt;all | &lt;name&gt;&gt;</code></pre>
 
+            <h2 id="character">Character</h2>
+            <pre><code>/rezero race     &lt;player&gt; &lt;get | set &lt;human|elf|half_elf&gt;&gt;
+/rezero age      &lt;player&gt; &lt;get | set &lt;amount&gt;&gt;
+/rezero lifespan &lt;player&gt; &lt;get | set &lt;amount&gt;&gt;
+/rezero mana     &lt;player&gt; &lt;get | set &lt;amount&gt;&gt;
+/rezero od       &lt;player&gt; &lt;get | set &lt;amount&gt;&gt;</code></pre>
+
+            <h2 id="data">Presets and wiping</h2>
+            <pre><code>/rezero data &lt;player&gt; preset &lt;subaru|reinhard&gt;
+/rezero data &lt;player&gt; reset</code></pre>
+            <div class="note warn">
+                <strong>A preset wipes first.</strong>
+                Applying one clears the target's magic, stats, authorities, spirits and protections before
+                it writes anything, so the preset is all they are left holding.
+            </div>
+
+            <h2 id="skill">Skill toggles</h2>
+            <pre><code>/rezero skill cooldown &lt;player&gt; &lt;true|false&gt;   turn ability cooldowns on or off
+/rezero skill cooldown &lt;player&gt; reset         clear all current cooldowns
+/rezero skill manacost &lt;player&gt; &lt;true|false&gt;  turn mana costs on or off</code></pre>
+
+            <h2 id="allies">Allies</h2>
+            <p>These need no permission level — they are for players.</p>
+            <pre><code>/rezero ally request &lt;player&gt;
+/rezero ally accept  &lt;player&gt;
+/rezero ally decline &lt;player&gt;
+/rezero ally remove  &lt;player&gt;
+/rezero ally attacks &lt;get | &lt;true|false&gt;&gt;     allow allies to damage you</code></pre>
+
+            <h2 id="world">World and miscellaneous</h2>
+            <pre><code>/rezero chunkmana    &lt;get | set &lt;amount&gt;&gt;      ambient mana in the current chunk
+/rezero chunkmiasma  &lt;get | set &lt;amount&gt;&gt;      miasma in the current chunk
+/rezero sagecandidate &lt;player&gt; &lt;true|false&gt;</code></pre>
 
             <div class="page-nav"></div>
         </article>

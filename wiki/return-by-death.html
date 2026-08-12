@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Return by Death — HahUeuh Wiki</title>
-<meta name="description" content="The world checkpoints itself as you play. When you die, everything rewinds \x{2014} and only you remember.">
+<title>Return by Death &mdash; HahUeuh Wiki</title>
+<meta name="description" content="How Return by Death checkpoints and rewinds the world in HahUeuh, what survives a rollback, and how to tune it.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,33 +20,48 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Authorities / Return by Death</p>
             <h1>Return by Death</h1>
-            <p class="lede">The world checkpoints itself as you play. When you die, everything rewinds \x{2014} and only you remember.</p>
+            <p class="lede">
+                The world checkpoints itself as you play. When you die it rewinds &mdash; terrain, mobs,
+                weather, other players &mdash; and only you remember it happened.
+            </p>
 
             <h2 id="how-it-works">How it works</h2>
             <p>
-                While players are online the mod quietly takes checkpoints of the world at a randomised
-                interval. When a holder of Return by Death dies, the world is restored to the last
-                checkpoint: terrain, block changes, entities, the time of day, the weather, and every
-                other player's position and inventory.
+                While players are online the mod quietly captures the state of the world. When a holder of
+                Return by Death dies, everything is restored to the last checkpoint: block changes,
+                entities, the time of day, the weather, and every other player's position and inventory.
             </p>
-            <p>
-                You keep your memory of what happened. Nobody else does.
-            </p>
-
             <div class="note warn">
-                <strong>This affects everyone on the server.</strong>
-                A rollback is not personal. Other players lose whatever they did since the checkpoint too.
+                <strong>A rollback is not personal.</strong>
+                Everyone on the server loses whatever they did since the checkpoint, not just you.
             </div>
 
-            <h2 id="checkpoints">Checkpoints</h2>
+            <h2 id="checkpoints">When checkpoints happen</h2>
+            <p>
+                Three separate things can trigger one, and each rolls a chance rather than firing every
+                time &mdash; so the exact moment cannot be predicted or farmed.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Trigger</th><th>Chance</th><th>Notes</th></tr></thead>
+                    <tbody>
+                        <tr><td>Timer</td><td>80%</td><td>Every <strong>60 seconds &plusmn; 15</strong>.</td></tr>
+                        <tr><td>Earning an advancement</td><td>80%</td><td>Real advancements only &mdash; recipe unlocks are filtered out.</td></tr>
+                        <tr><td>Sleeping</td><td>80%</td><td></td></tr>
+                    </tbody>
+                </table>
+            </div>
             <ul>
-                <li>They are taken on a randomised timer, so the exact moment cannot be predicted or farmed.</li>
-                <li>No checkpoint is ever taken while the server is empty.</li>
-                <li>Capture runs in the background, so it should not stutter the game.</li>
+                <li><strong>No checkpoint is taken while the server is empty.</strong> This is deliberate,
+                    so a single-player world does not silently drift while you are away.</li>
+                <li>A checkpoint is deferred while any player has a container open, for up to
+                    <strong>60 seconds</strong>, so it cannot catch a half-finished inventory move.</li>
+                <li>Capture runs on a background thread, so it should not stutter the game.</li>
+                <li>Players are <strong>not</strong> notified by default. Turn on
+                    <code>showCheckpointNotification</code> if you want the message.</li>
             </ul>
             <p>
-                If a rollback appears not to have moved other players, the usual explanation is that the
-                checkpoint was simply very recent \x{2014} not that the restore failed.
+                You can also force one at any time with <code>/rezero checkpoint</code>.
             </p>
 
             <h2 id="whats-preserved">What survives a rewind</h2>
@@ -55,26 +70,47 @@
                 meaningless or actively broken:
             </p>
             <ul>
-                <li>Your own memory of the loop, and the Insanity that comes with it.</li>
-                <li>Pocket dimensions \x{2014} Door Crossing rooms and Al Shamak cells.</li>
-                <li>The world's monotonic game time, so command blocks and cooldowns are not corrupted.
-                    Only the visible time of day is rewound.</li>
+                <li><strong>Your memory of the loop</strong>, and the Insanity that accumulates with it.</li>
+                <li><strong>Pocket dimensions</strong> &mdash; Door Crossing rooms and Al Shamak cells.</li>
+                <li><strong>The world's game time.</strong> Only the visible time of day is rewound; the
+                    underlying monotonic clock is not, because rewinding it breaks command blocks and
+                    desyncs every cooldown in the game.</li>
+                <li>Other mods' live databases, which are skipped rather than corrupted.</li>
             </ul>
+
+            <h2 id="witch-scent">Witch's Scent</h2>
+            <p>
+                Rewinding leaves a mark. Witch's Scent builds up on a looping player &mdash; to a maximum of
+                <strong>5</strong> levels by default &mdash; and it is not subtle: it makes you notably worse
+                at <a href="/wiki/spirits.html">communing with spirits</a>, cutting success to
+                <strong>35%</strong> of what it would be.
+            </p>
+            <p>
+                It can be disabled entirely with <code>witchScentEnabled</code>.
+            </p>
 
             <h2 id="limits">Limits</h2>
             <p>
-                Return by Death does not make you immortal in every sense \x{2014} it makes death a reset. Being
-                sealed by Ol Shamak, frozen by Lion's Heart, or killed in a way the mod cannot cancel all
-                still resolve first.
+                Return by Death makes death a reset, not an immunity. Things that resolve first:
             </p>
+            <ul>
+                <li>Being sealed by <a href="/wiki/spells.html">Ol Shamak</a>.</li>
+                <li>Being frozen by <a href="/wiki/greed.html">Lion's Heart</a>.</li>
+                <li>The <a href="/wiki/divine-protections.html">Phoenix</a> protection, which revives you
+                    instead of letting the death happen at all.</li>
+            </ul>
+            <div class="note">
+                <strong>Dying on the death screen is a real state.</strong>
+                A player who is rolled back before clicking respawn used to be locked out permanently.
+                If you are running an older build and see this, update.
+            </div>
 
-            <h2 id="config">Turning it down</h2>
+            <h2 id="config">Tuning it</h2>
             <p>
-                Everything above is configurable: the checkpoint interval, whether players are notified
-                when one is taken, and whether the Authority is available at all. See
-                <a href="/wiki/configuration.html">Configuration</a>.
+                Everything above lives in the Return by Death config: each trigger can be switched off
+                independently, the interval and its randomness are adjustable, and the whole Authority can
+                be disabled. See <a href="/wiki/configuration.html">Configuration</a>.
             </p>
-
 
             <div class="page-nav"></div>
         </article>
@@ -84,7 +120,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki &mdash; an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

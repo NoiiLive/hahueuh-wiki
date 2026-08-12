@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Magic overview — HahUeuh Wiki</title>
-<meta name="description" content="How casting works \x{2014} schools, mana, Od, and why a cast fails.">
+<title>Magic overview &mdash; HahUeuh Wiki</title>
+<meta name="description" content="How casting works in HahUeuh — the six schools, mana, Od, and the permanent price of running dry.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,18 +20,114 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Magic</p>
             <h1>Magic overview</h1>
-            <p class="lede">How casting works \x{2014} schools, mana, Od, and why a cast fails.</p>
+            <p class="lede">
+                Two reservoirs, one Gate, and a punishment for emptying the wrong one.
+            </p>
 
-            <div class="note">
-                <strong>This page is still being written.</strong>
-                The structure below is in place; the prose is not finished yet.
-            </div>
             <h2 id="schools">The six schools</h2>
-            <p>Fire, Water, Earth, Wind, Yin and Yang. See <a href="/wiki/spells.html">the spell list</a>.</p>
-            <h2 id="mana-od">Mana and Od</h2>
-            <h2 id="casting">Casting and failure</h2>
-            <p>See <a href="/wiki/gate.html">The Gate</a> for Output, Efficiency and strain.</p>
+            <p>
+                Fire, Water, Earth, Wind, Yin and Yang. You may be born with them, be granted one by an
+                affinity <a href="/wiki/divine-protections.html">Divine Protection</a>, or borrow one from a
+                <a href="/wiki/spirits.html">contracted spirit</a>.
+            </p>
+            <div class="note gold">
+                <strong>Only Yin has spells implemented.</strong>
+                The other five schools exist and can be acquired every way listed above, but nothing has
+                been written for them yet. See the <a href="/wiki/spells.html">spell list</a>.
+            </div>
 
+            <h2 id="mana-od">Mana and Od</h2>
+            <p>
+                These are not two names for the same bar. Mana is what you spend; Od is what you are.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th></th><th>Mana</th><th>Od</th></tr></thead>
+                    <tbody>
+                        <tr><td>Maximum</td><td>lifespan &times; 2, then scaled by your Magic stat</td><td>lifespan &times; 5</td></tr>
+                        <tr><td>Refills</td><td>Yes &mdash; 10% per second while charging</td><td>Only on death</td></tr>
+                        <tr><td>Spent</td><td>First, for everything</td><td>Only when mana runs out mid-cast</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Casting always drains mana first. If a spell needs more than you have left, the shortfall
+                comes out of <strong>Od</strong> &mdash; and Od does not come back.
+            </p>
+
+            <div class="note warn">
+                <strong>Spending your last Od cripples you permanently.</strong>
+                Reaching zero Od inflicts the withered state and drives your Insanity straight to maximum.
+                It is irreversible by design. Servers that consider this too harsh can set
+                <code>crippledEnabled = false</code>, which instead refills Od and locks every magic skill
+                for <strong>20 minutes</strong>.
+            </div>
+
+            <h2 id="lifespan">Why your race decides your ceiling</h2>
+            <p>
+                Because both reservoirs are derived from lifespan, and lifespan comes from
+                <a href="/wiki/races.html">race</a>, the gap between races is enormous:
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Race</th><th>Lifespan</th><th>Base mana</th><th>Od</th></tr></thead>
+                    <tbody>
+                        <tr><td>Human</td><td>80&ndash;120</td><td>160&ndash;240</td><td>400&ndash;600</td></tr>
+                        <tr><td>Half Elf</td><td>300&ndash;500</td><td>600&ndash;1000</td><td>1500&ndash;2500</td></tr>
+                        <tr><td>Elf</td><td>800&ndash;1000</td><td>1600&ndash;2000</td><td>4000&ndash;5000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                A maxed Magic stat multiplies base mana by <strong>2.5</strong>, and you may overcharge to
+                <strong>twice</strong> your maximum on top of that. Even so, the biggest spells are out of
+                reach for a short-lived character: Ol Shamak costs 1250, which a Human at maximum Magic can
+                only meet by overcharging &mdash; and only at the top of the Human lifespan range.
+            </p>
+            <div class="note tip">
+                <strong>This is what spirits are for.</strong>
+                A contracted spirit brings its own pool and its own spell cap, which is how a Human ever
+                casts anything expensive.
+            </div>
+
+            <h2 id="charging">Charging</h2>
+            <p>
+                Holding the charge action draws ambient mana from the chunk you are standing in at
+                <strong>10% of your maximum per second</strong>. A chunk holds up to <strong>5000</strong>
+                ambient mana and replenishes over about <strong>3 days</strong>, so a heavily-farmed spot
+                genuinely runs dry.
+            </p>
+            <p>
+                Charging past your maximum is <strong>overcharging</strong>. You get 50% headroom for free;
+                beyond that you accumulate <a href="/wiki/gate.html">Gate strain</a>. The hard ceiling is
+                twice your maximum.
+            </p>
+            <p>
+                A <strong>No Absorption</strong> Gate cannot charge at all, and neither can a Destroyed one.
+            </p>
+
+            <h2 id="casting">Casting</h2>
+            <p>
+                A cast has a total mana cost and a per-tick draw rate. Three separate things can stop it:
+            </p>
+            <ol>
+                <li>Your <strong>Gate status</strong> &mdash; Destroyed blocks everything, No Release blocks
+                    all school magic.</li>
+                <li>Your <strong>spell cap</strong>, set by Magic level, which refuses spells above a total
+                    mana threshold.</li>
+                <li>Your <strong>Gate Output</strong> &mdash; if the per-tick rate is 3&times; your Output or
+                    worse, the cast fizzles and the mana is wasted.</li>
+            </ol>
+            <p>
+                All three are covered in detail on <a href="/wiki/gate.html">The Gate</a>.
+            </p>
+
+            <h3 id="funding">Where the mana comes from</h3>
+            <p>
+                Funding is resolved <em>in sequence</em>, not pooled: elemental spirit pools first, then a
+                contracted spirit's reserves, then your own mana, then Od. Each source pays at its own
+                Output and Efficiency, so one cast can genuinely be part spirit and part you.
+            </p>
 
             <div class="page-nav"></div>
         </article>
@@ -41,7 +137,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki &mdash; an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

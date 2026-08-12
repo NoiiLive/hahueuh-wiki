@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stats — HahUeuh Wiki</title>
-<meta name="description" content="Six stats, each with a rolled ceiling you can never train past.">
+<meta name="description" content="The six HahUeuh stats, what each one actually changes, and how proficiency and capacity cap your growth.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,58 +20,117 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Character / Stats</p>
             <h1>Stats</h1>
-            <p class="lede">Six stats, each with a rolled ceiling you can never train past.</p>
+            <p class="lede">
+                Six stats, each rolled at birth with a ceiling you can never train past. They level by
+                being used — you cannot spend points.
+            </p>
 
-            <h2 id="the-six">The six stats</h2>
+            <h2 id="three-numbers">Proficiency, capacity and level</h2>
+            <p>
+                Every stat carries three numbers. Confusing them is the most common mistake players make.
+            </p>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>Stat</th><th>Governs</th></tr></thead>
+                    <thead><tr><th>Number</th><th>Range</th><th>What it does</th></tr></thead>
                     <tbody>
-                        <tr><td>Tenacity</td><td>Staying power.</td></tr>
-                        <tr><td>Fortitude</td><td>Resilience and maximum health.</td></tr>
-                        <tr><td>Strength</td><td>Physical damage.</td></tr>
-                        <tr><td>Reflexes</td><td>Speed and reaction.</td></tr>
-                        <tr><td>Magic</td><td>Mana capacity, and your Gate's Output and Efficiency.</td></tr>
-                        <tr><td>Combat</td><td>Skill at arms.</td></tr>
+                        <tr><td>Proficiency</td><td>1–10</td><td>How fast the stat gains experience. Rolled at birth.</td></tr>
+                        <tr><td>Capacity</td><td>1–10</td><td>How high the level may ever go. Rolled at birth.</td></tr>
+                        <tr><td>Level</td><td>0–100</td><td>What you have actually trained.</td></tr>
                     </tbody>
                 </table>
             </div>
-
-            <h2 id="proficiency-capacity">Proficiency, capacity and level</h2>
             <p>
-                Each stat carries three numbers, and confusing them is the most common mistake players make.
+                The level ceiling is <strong>capacity × 10</strong>. A stat rolled at capacity 3 stops at
+                level 30 forever; capacity 10 allows level 100. Each level takes <strong>100 progress</strong>,
+                and proficiency multiplies how much progress each action grants.
             </p>
-            <ul>
-                <li><strong>Proficiency</strong> \x{2014} how quickly the stat gains experience. Rolled at birth.</li>
-                <li><strong>Capacity</strong> \x{2014} how high the stat's level may ever go. Rolled at birth.</li>
-                <li><strong>Level</strong> \x{2014} what you have actually trained, capped by capacity.</li>
-            </ul>
-            <p>
-                Proficiency and capacity are fixed for life under normal play. A character born with low
-                capacity in Magic will never be a great caster no matter how long they train \x{2014} that is
-                the point.
-            </p>
+            <div class="note">
+                <strong>Your starting level is not zero.</strong>
+                Stats begin at a multiple of their own roll, between <strong>1×</strong> and <strong>2×</strong>,
+                so a strong roll starts ahead as well as ending higher.
+            </div>
 
-            <h2 id="training">Training</h2>
+            <h2 id="what-they-do">What each stat changes</h2>
             <p>
-                Stats level by being used. The Divine Protection of Training multiplies all stat experience
-                you earn; the Divine Protection of Instruction lets someone else grant you a multiplier for
-                a specific stat.
+                Every bonus below is the value at <em>maximum</em> for that stat — you receive a fraction of
+                it proportional to how far along you are. All are configurable defaults.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Stat</th><th>At maximum</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Tenacity</td>
+                            <td>+112.5% max health, and +150% healing received.</td>
+                        </tr>
+                        <tr>
+                            <td>Fortitude</td>
+                            <td>52.5% incoming damage reduction.</td>
+                        </tr>
+                        <tr>
+                            <td>Strength</td>
+                            <td>+3 fist damage, +60% jump height, 75% less fall damage.</td>
+                        </tr>
+                        <tr>
+                            <td>Reflexes</td>
+                            <td>+37.5% movement speed, and +75% attack speed while unarmed.</td>
+                        </tr>
+                        <tr>
+                            <td>Magic</td>
+                            <td>+150% mana capacity, +150% charge rate, and +75% to Gate Output and Efficiency.</td>
+                        </tr>
+                        <tr>
+                            <td>Combat</td>
+                            <td>+90% damage and +52.5% attack speed — but only with a weapon in hand.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note tip">
+                <strong>Armed and unarmed use different stats.</strong>
+                With a weapon, your damage and attack speed come from <strong>Combat</strong>. Bare-handed,
+                they come from <strong>Strength</strong> and <strong>Reflexes</strong> instead. This is also
+                how the Unarmed Combat and Weapon God protections split.
+            </div>
+
+            <h2 id="training">How stats level</h2>
+            <p>
+                Experience is awarded for doing the thing the stat governs. There is no other way to raise a stat.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Action</th><th>Trains</th><th>Default XP</th></tr></thead>
+                    <tbody>
+                        <tr><td>Dealing damage with a weapon</td><td>Combat</td><td>2 per damage</td></tr>
+                        <tr><td>Dealing damage bare-handed</td><td>Strength</td><td>2 per damage</td></tr>
+                        <tr><td>Taking damage in armour</td><td>Fortitude</td><td>2 per damage</td></tr>
+                        <tr><td>Taking damage unarmoured</td><td>Tenacity</td><td>2 per damage</td></tr>
+                        <tr><td>Being healed</td><td>Tenacity</td><td>3 per health</td></tr>
+                        <tr><td>Blocking with a shield</td><td>Fortitude</td><td>3 per block</td></tr>
+                        <tr><td>Breaking a block by hand</td><td>Strength</td><td>2 each</td></tr>
+                        <tr><td>Sprinting</td><td>Reflexes</td><td>0.5 per block</td></tr>
+                        <tr><td>Spending mana</td><td>Magic</td><td>per 100 mana</td></tr>
+                        <tr><td>Charging mana</td><td>Magic</td><td>per 100 mana</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                The Divine Protection of Training multiplies all of it. The Divine Protection of Instruction
+                lets another player grant you a multiplier for one specific stat.
             </p>
 
             <h2 id="temporary">Temporary bonuses</h2>
             <p>
-                Several protections push a stat above its normal value for a while \x{2014} Shedding Blood as you
-                lose health, Fireplay while you burn, Sun and Moon by time of day. In the
-                <a href="/wiki/book-of-life.html">Book of Life</a> the boosted total is what you see; the
-                tooltip breaks out where the extra came from.
+                Several protections push a stat above its normal value for a while — Shedding Blood as you
+                lose health, Fireplay while you burn, Sun and Moon by time of day, Unarmed Combat and Weapon
+                God by what you are holding. In the <a href="/wiki/book-of-life.html">Book of Life</a> the
+                boosted total is the number shown, and the tooltip breaks out where the extra came from.
             </p>
             <div class="note">
-                <strong>Bonuses can exceed the cap.</strong>
-                Temporary boosts are deliberately allowed past your capacity ceiling. Your trained level is
-                untouched underneath.
+                <strong>Bonuses may exceed the cap.</strong>
+                Temporary boosts are deliberately allowed past your capacity ceiling. The trained level
+                underneath is untouched.
             </div>
-
 
             <div class="page-nav"></div>
         </article>

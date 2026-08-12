@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spell list — HahUeuh Wiki</title>
-<meta name="description" content="Every spell in the mod, by school.">
+<meta name="description" content="Every spell in the HahUeuh mod, with its default mana cost, cast rate and cooldown.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,66 +20,193 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Magic / Spells</p>
             <h1>Spell list</h1>
-            <p class="lede">Every spell in the mod, by school.</p>
+            <p class="lede">
+                Sixteen spells, plus two General skills. Every one of them is Yin.
+            </p>
 
-            <div class="note">
-                <strong>Costs are omitted deliberately.</strong>
-                Every mana cost, cast time and cooldown on this page is configurable, so a fixed number
-                here would be wrong on most servers. Check your own config for the values in play.
+            <div class="note gold">
+                <strong>Only Yin has spells right now.</strong>
+                Fire, Water, Earth, Wind and Yang exist as schools — they can be rolled at birth, granted
+                by an affinity protection, and lent by a spirit — but no spell has been written for them
+                yet. Being born with Fire currently gives you nothing to cast.
             </div>
 
-            <h2 id="yin">Yin</h2>
-            <p>The shadow school \x{2014} concealment, binding and denial.</p>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Spell</th><th>Effect</th></tr></thead>
-                    <tbody>
-                        <tr><td>Shamak</td><td>Sensory deprivation \x{2014} the target is blinded and their controls inverted.</td></tr>
-                        <tr><td>El Shamak</td><td>A stronger Shamak.</td></tr>
-                        <tr><td>Ul Shamak</td><td>Stronger still.</td></tr>
-                        <tr><td>Al Shamak</td><td>Banish a target into a pocket dimension, or store a spell for later release.</td></tr>
-                        <tr><td>Al Karum</td><td>\x{2014}</td></tr>
-                        <tr><td>Ol Shamak</td><td>Seal the target \x{2014} they cannot move, act or be moved.</td></tr>
-                        <tr><td>E.M.M.</td><td>A sustained drain, paid every second while it is up.</td></tr>
-                        <tr><td>E.M.T.</td><td>A sustained silence, paid every second while it is up.</td></tr>
-                        <tr><td>Door Crossing</td><td>Open a passage into a private room.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2 id="other-schools">Other schools</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Spell</th><th>Effect</th></tr></thead>
-                    <tbody>
-                        <tr><td>Minya · El Minya · Ul Minya</td><td>Escalating tiers of the same spell.</td></tr>
-                        <tr><td>Vita · El Vita</td><td>Healing.</td></tr>
-                        <tr><td>Murak</td><td>\x{2014}</td></tr>
-                        <tr><td>Teleportation</td><td>Move instantly.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2 id="general">General</h2>
             <p>
-                These cost mana but belong to no school, so they are available even to a No Release Gate.
+                All numbers below are the shipped defaults from the Yin magic config. Every one is
+                adjustable, so a server may not match. <strong>Total</strong> is the whole mana cost of the
+                cast; <strong>per tick</strong> is the rate it is drawn at, which is what your Gate's Output
+                is checked against to decide whether the cast succeeds or fizzles.
+            </p>
+
+            <h2 id="shamak">The Shamak line — darkness and denial</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Cooldown</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Shamak</td><td>100</td><td>3</td><td>15s</td>
+                            <td>An ink cloud expands to a <strong>16 block</strong> radius, inflicting Sensory Deprivation for <strong>10s</strong> on everything but you. Mobs caught in it lose their target.</td>
+                        </tr>
+                        <tr>
+                            <td>El Shamak</td><td>300</td><td>5</td><td>20s</td>
+                            <td>Smaller radius (<strong>10 blocks</strong>) but inflicts Bodily Disconnect for <strong>8s</strong> instead. Also wipes mob targeting.</td>
+                        </tr>
+                        <tr>
+                            <td>Ul Shamak</td><td>500</td><td>7</td><td>60s</td>
+                            <td>Summons a black hole where you are looking, up to 20 blocks away. Pulls from <strong>12 blocks</strong>, event horizon <strong>3 blocks</strong>, <strong>3 damage</strong> at the core, consumes 6 blocks per tick, lasts <strong>6s</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td>Al Karum</td><td>1000</td><td>8</td><td>90s</td>
+                            <td>The same black hole, empowered. Pull radius <strong>24</strong>, event horizon <strong>6</strong>, <strong>6 damage</strong>, 12 blocks per tick, cast up to 24 blocks away.</td>
+                        </tr>
+                        <tr>
+                            <td>Al Shamak</td><td>1000</td><td>9</td><td>120s</td>
+                            <td>Banishes a target into a pocket dimension for <strong>15s</strong>, taking everything within <strong>10 blocks</strong> of them along. Non-players can be held indefinitely instead, and it doubles as spell storage.</td>
+                        </tr>
+                        <tr>
+                            <td>Ol Shamak</td><td>1250</td><td>10</td><td>90s</td>
+                            <td>Seals a target within <strong>24 blocks</strong> for <strong>60s</strong> — they cannot move, act, or be moved. The seal has <strong>40 health</strong> and can be broken by damaging it.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note">
+                <strong>A sealed target cannot be banished.</strong>
+                Al Shamak refuses anyone already held by Ol Shamak, and skips sealed bystanders when it
+                sweeps up the group around its target.
+            </div>
+
+            <h2 id="minya">The Minya line — ice stakes</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Cooldown</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Minya</td><td>150</td><td>3</td><td>8s</td>
+                            <td><strong>3 stakes</strong> at <strong>6 damage</strong> each, homing onto whatever you were looking at within 24 blocks. Applies Crystallize for 2s; a crystallized target that shatters takes 20% extra and throws homing shards.</td>
+                        </tr>
+                        <tr>
+                            <td>El Minya</td><td>300</td><td>5</td><td>15s</td>
+                            <td><strong>15 stakes</strong> at <strong>4 damage</strong>, scattered around you before launching. Land 3 within one second and they detonate for <strong>8 damage</strong> in a <strong>4 block</strong> radius.</td>
+                        </tr>
+                        <tr>
+                            <td>Ul Minya</td><td>1000</td><td>8</td><td>60s</td>
+                            <td>Binds a single target within <strong>24 blocks</strong> in a ring for <strong>3s</strong>, then deals <strong>40 damage</strong>. Requires a locked target.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="gravity">Gravity — Vita and Murak</h2>
+            <p>
+                These three are opposites and share a pattern: <strong>shift while casting to apply it to
+                yourself indefinitely</strong>, or cast it normally at a target you are looking at. Casting
+                it on yourself again turns it off.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Cooldown</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Vita</td><td>200</td><td>3</td><td>10s</td>
+                            <td>Increases gravity on a target within 24 blocks — <strong>1.5×</strong> gravity and <strong>1.5×</strong> fall damage.</td>
+                        </tr>
+                        <tr>
+                            <td>El Vita</td><td>500</td><td>5</td><td>20s</td>
+                            <td><strong>2×</strong> gravity and fall damage. A fall of 5 blocks or more leaves a crater.</td>
+                        </tr>
+                        <tr>
+                            <td>Murak</td><td>200</td><td>3</td><td>10s</td>
+                            <td>The reverse — reduces gravity to near nothing and grants drifting flight, with a gust every 2 seconds.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note warn">
+                <strong>Vita is not a healing spell.</strong>
+                Despite the name, nothing in this mod's Vita line restores health.
+            </div>
+
+            <h2 id="utility">Movement and utility</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Cooldown</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Teleportation</td><td>200 base</td><td>8</td><td>60s</td>
+                            <td>Costs <strong>5 mana per block</strong> travelled on top of the base. Moving yourself adds <strong>100</strong>; opening a lasting portal instead adds <strong>200</strong> and leaves a <strong>1.5 block</strong> gateway standing for <strong>15s</strong>.</td>
+                        </tr>
+                        <tr>
+                            <td>Door Crossing</td><td>700</td><td>5</td><td>30s</td>
+                            <td>Look at a door within 6 blocks to arm it. For <strong>15s</strong> it leads into a private room <strong>75 blocks</strong> across and <strong>32</strong> high. Other doors within 100 blocks have a <strong>10%</strong> chance of becoming strays into it.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="sustained">Sustained — E.M.M. and E.M.T.</h2>
+            <p>
+                Both are toggles rather than one-shot casts. You pay the cast cost to raise them, then an
+                upkeep every second until you drop them or run dry. Casting again ends them early, and
+                re-casting has no cooldown while active.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Upkeep</th><th>Cooldown</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>E.M.M.</td><td>600</td><td>7</td><td>50/s</td><td>60s</td>
+                            <td>Stillness on yourself. While it is up, no other spell may be cast.</td>
+                        </tr>
+                        <tr>
+                            <td>E.M.T.</td><td>700</td><td>8</td><td>50/s</td><td>90s</td>
+                            <td>Anchors a silence field of <strong>25 block</strong> radius where you cast it. Anyone inside is cut off from casting and from charging mana.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note tip">
+                <strong>Spirits pay the upkeep too.</strong>
+                The per-second drain is taken from your spirit pools first and only then from your own mana,
+                exactly like the cast itself.
+            </div>
+
+            <h2 id="general">General skills</h2>
+            <p>
+                These cost mana but belong to no school, so a <a href="/wiki/gate.html">No Release</a> Gate
+                can still use them.
             </p>
             <div class="table-wrap">
                 <table>
                     <thead><tr><th>Skill</th><th>Effect</th></tr></thead>
                     <tbody>
-                        <tr><td>Spirit Commune</td><td>Attempt a permanent contract with a spirit.</td></tr>
-                        <tr><td>Temporary Contract</td><td>Roll several short-lived spirits at once.</td></tr>
+                        <tr><td>Spirit Commune</td><td>Attempt a permanent contract with a spirit. Ignores Gate Output, so it cannot fizzle.</td></tr>
+                        <tr><td>Temporary Contract</td><td>Rolls several short-lived spirits at once. Also ignores Gate Output.</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="note warn">
-                <strong>Mobs cannot cast the dangerous ones.</strong>
-                Magic-using mobs are permanently barred from Al Shamak, Ol Shamak, Murak, Teleportation,
-                Door Crossing, E.M.M. and E.M.T., no matter what schools they are given.
+            <h2 id="mobs">Mobs and spells</h2>
+            <p>
+                Magic-using mobs roll their own chance to know each spell. Defaults:
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Spell</th><th>Chance</th><th>Spell</th><th>Chance</th></tr></thead>
+                    <tbody>
+                        <tr><td>Minya</td><td>35%</td><td>Shamak</td><td>30%</td></tr>
+                        <tr><td>El Minya</td><td>25%</td><td>El Shamak</td><td>20%</td></tr>
+                        <tr><td>Vita</td><td>20%</td><td>Ul Minya</td><td>15%</td></tr>
+                        <tr><td>Ul Shamak</td><td>10%</td><td>El Vita</td><td>10%</td></tr>
+                        <tr><td>Al Karum</td><td>5%</td><td></td><td></td></tr>
+                    </tbody>
+                </table>
             </div>
-
+            <div class="note warn">
+                <strong>Mobs can never cast the rest.</strong>
+                Al Shamak, Ol Shamak, Murak, Teleportation, Door Crossing, E.M.M. and E.M.T. have no mob
+                chance at all and are hard-barred, no matter what schools a mob is given.
+            </div>
 
             <div class="page-nav"></div>
         </article>

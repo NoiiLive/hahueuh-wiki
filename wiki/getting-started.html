@@ -54,12 +54,23 @@
                 never repeated — dying, respawning, or even a Return by Death will not re-roll it.
             </p>
             <ul>
-                <li><strong>Race</strong> — Human, Elf or Half Elf, which sets your lifespan.</li>
-                <li><strong>Stats</strong> — six stats, each given a proficiency and a capacity. See <a href="/wiki/stats.html">Stats</a>.</li>
-                <li><strong>Magic</strong> — a chain of decreasing rolls decides how many schools you are born with. Most people get none.</li>
-                <li><strong>The Gate</strong> — Open if you were born with magic, Partly Open if you were not, with a small chance of being Defective instead. See <a href="/wiki/gate.html">The Gate</a>.</li>
-                <li><strong>Divine Protections</strong> — rolled per rarity tier. See <a href="/wiki/divine-protections.html">Divine Protections</a>.</li>
+                <li><strong>Stats</strong> — six stats, each given a proficiency and a capacity from 1 to 10, plus a starting level. See <a href="/wiki/stats.html">Stats</a>.</li>
+                <li><strong>Lifespan</strong> — rolled within your race's range. Everyone starts Human; race only changes by command.</li>
+                <li><strong>Magic</strong> — a chain of rolls decides how many schools you are born with. <strong>75% of players get none.</strong></li>
+                <li><strong>The Gate</strong> — Open if you were born with magic, Partly Open if you were not, with a flat 5% chance of being Defective instead. Its Output and Efficiency are rolled 1–10. See <a href="/wiki/gate.html">The Gate</a>.</li>
+                <li><strong>Divine Protections</strong> — a chain of rolls at 25%, then 15%, then 5%. See <a href="/wiki/divine-protections.html">Divine Protections</a>.</li>
             </ul>
+            <p>
+                The magic chain runs 25% for a first school, then 23%, 21%, 19%, 17%, 15% — but because the
+                rolls compound it thins out fast. Roughly <strong>1 in 5</strong> players is born with one
+                school, <strong>1 in 22</strong> with two, <strong>1 in 102</strong> with three, and
+                <strong>1 in 17,000</strong> with all six.
+            </p>
+            <div class="note warn">
+                <strong>Being born with magic may still leave you with nothing to cast.</strong>
+                Only the Yin school has spells implemented. Rolling Fire, Water, Earth, Wind or Yang
+                currently grants the school and opens your Gate, but there is no spell in it yet.
+            </div>
             <p>
                 None of this is visible in chat beyond a couple of lines. To actually read your character,
                 open the <a href="/wiki/book-of-life.html">Book of Life</a>.

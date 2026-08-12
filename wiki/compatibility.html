@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mod compatibility — HahUeuh Wiki</title>
-<meta name="description" content="Mods that HahUeuh has explicit handling for.">
+<title>Mod compatibility &mdash; HahUeuh Wiki</title>
+<meta name="description" content="Which mods HahUeuh has explicit handling for, and how Return by Death treats other mods' data.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,30 +20,72 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Reference / Compatibility</p>
             <h1>Mod compatibility</h1>
-            <p class="lede">Mods that HahUeuh has explicit handling for.</p>
+            <p class="lede">
+                HahUeuh has no hard dependencies. A handful of mods get explicit handling, almost all of it
+                because <a href="/wiki/return-by-death.html">Return by Death</a> rewrites the world on disk.
+            </p>
 
-            <div class="note">
-                <strong>This page is still being written.</strong>
-                The structure below is in place; the prose is not finished yet.
-            </div>
-            <h2 id="handled">Explicitly handled</h2>
+            <h2 id="explicit">Explicitly handled</h2>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>Mod</th><th>Notes</th></tr></thead>
+                    <thead><tr><th>Mod</th><th>Loaders</th><th>What is handled</th></tr></thead>
                     <tbody>
-                        <tr><td>Distant Horizons</td><td>Rolled-back chunks are pushed back into its LOD store.</td></tr>
-                        <tr><td>Create</td><td>Handled during rollback.</td></tr>
-                        <tr><td>Better Combat</td><td>Explicit weapon attribute files so the mod's weapons are recognised.</td></tr>
-                        <tr><td>Epic Fight</td><td>Player data attachments are preserved across a rollback.</td></tr>
+                        <tr>
+                            <td>Create</td><td>Both</td>
+                            <td>Trains and their cached carriage data are handled during rollback, which would otherwise leave contraptions referring to state that no longer exists.</td>
+                        </tr>
+                        <tr>
+                            <td>Sable</td><td>NeoForge only</td>
+                            <td>Rollback compatibility. Sable keys its held data by physical chunk, which a restore has to account for.</td>
+                        </tr>
+                        <tr>
+                            <td>PlayerRevive</td><td>Both</td>
+                            <td>Detected reflectively at runtime. HahUeuh checks whether a player is in PlayerRevive's bleeding state and can force a revive, so its downed state does not fight with Phoenix or a rollback.</td>
+                        </tr>
+                        <tr>
+                            <td>Better Combat</td><td>Both</td>
+                            <td>The mod's four weapons ship explicit <code>weapon_attributes</code> datapack files, so Better Combat recognises them properly instead of guessing from the item name.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <h2 id="rollback">A note on rollback and other mods</h2>
             <p>
-                Return by Death restores files on disk. Mods that keep their own databases open while the
-                server runs are skipped rather than corrupted.
+                The four weapons with Better Combat definitions are the Dragon Sword Reid and the three
+                Bowel Hunter blades &mdash; black blade, white blade and kukri. The kukri in particular does
+                not match Better Combat's name-based rules, which is why the explicit file exists.
             </p>
+            <div class="note">
+                <strong>None of these mods are required.</strong>
+                Each integration is behind a mod-loaded check. If the mod is absent, the code never runs.
+            </div>
 
+            <h2 id="rollback">How rollback treats other mods</h2>
+            <p>
+                Return by Death restores files on disk, which means every mod that persists data is
+                potentially in scope. Three rules keep this from being destructive:
+            </p>
+            <ul>
+                <li><strong>Live databases are skipped.</strong> A mod holding an open SQLite file is left
+                    alone rather than having its file replaced underneath it, and one locked file never
+                    aborts the rest of the restore.</li>
+                <li><strong>Runtime data attachments are preserved.</strong> A rollback used to null every
+                    player attachment, which broke other mods that keep non-serialised state there. Only
+                    HahUeuh's own serialised data is now restored.</li>
+                <li><strong>Game time is never rewound.</strong> Only the visible time of day moves.
+                    Rewinding the monotonic clock breaks command blocks and desyncs every cooldown in the
+                    game, HahUeuh's own included.</li>
+            </ul>
+
+            <h2 id="untested">Everything else</h2>
+            <p>
+                Mods not listed here are untested rather than known-broken. The risk is concentrated
+                entirely in Return by Death: a mod that stores world state somewhere unusual may not be
+                restored consistently with the rest of the world.
+            </p>
+            <p>
+                If you hit a conflict, the useful detail to report is <em>what the mod persists and where</em>
+                &mdash; that is almost always where the problem is.
+            </p>
 
             <div class="page-nav"></div>
         </article>
@@ -53,7 +95,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki &mdash; an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

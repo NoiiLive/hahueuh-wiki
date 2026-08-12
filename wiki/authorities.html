@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Authorities overview — HahUeuh Wiki</title>
-<meta name="description" content="The Witch Cult\x{2019}s Authorities, and the ability sets each one unlocks.">
+<meta name="description" content="The Authorities in HahUeuh, their variants, and how compatibility earns them.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,44 +20,102 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Authorities</p>
             <h1>Authorities overview</h1>
-            <p class="lede">The Witch Cult\x{2019}s Authorities, and the ability sets each one unlocks.</p>
-
-            <h2 id="what-they-are">What an Authority is</h2>
-            <p>
-                An Authority is not a single power but a family of active abilities, granted as a set. They
-                are not rolled at birth \x{2014} they are given, taken, and fought over.
+            <p class="lede">
+                An Authority is a family of active abilities granted as a set. They are not rolled at
+                birth — they are earned, given, and fought over.
             </p>
 
             <h2 id="list">The Authorities</h2>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>Authority</th><th>Abilities</th></tr></thead>
+                    <thead><tr><th>Authority</th><th>Variants</th></tr></thead>
                     <tbody>
-                        <tr><td><a href="/wiki/return-by-death.html">Return by Death</a></td><td>Return</td></tr>
-                        <tr><td><a href="/wiki/greed.html">Greed</a></td><td>Domain (Victim, Aggressor), Little King, Lion's Heart</td></tr>
-                        <tr><td><a href="/wiki/sloth.html">Sloth</a></td><td>Summon Hand, Quick Strike, Quick Grasp, Hidden Interaction, Self Propel</td></tr>
-                        <tr><td>Finger</td><td>Finger Grant, and a Sloth ability set of its own</td></tr>
+                        <tr><td><a href="/wiki/return-by-death.html">Return by Death</a></td><td>None</td></tr>
+                        <tr><td><a href="/wiki/greed.html">Greed</a></td><td>Lion's Heart, Cor Leonis, Echidna</td></tr>
+                        <tr><td><a href="/wiki/sloth.html">Sloth</a></td><td>Invisible Providence, Unseen Hands, Sekhmet</td></tr>
+                        <tr><td>Domain</td><td>None — Greed's Domain, tracked separately</td></tr>
+                        <tr><td>Finger</td><td>None — a Sloth offshoot granted by Finger Grant</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="variants">Variants</h2>
+            <p>
+                Greed and Sloth are not one power each. When the Authority is acquired a <strong>variant</strong>
+                is rolled, and the variant decides what you actually get. They are not equally likely.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Authority</th><th>Variant</th><th>Weight</th><th>Odds</th></tr></thead>
+                    <tbody>
+                        <tr><td rowspan="3">Sloth</td><td>Invisible Providence</td><td>55</td><td>55%</td></tr>
+                        <tr><td>Unseen Hands</td><td>40</td><td>40%</td></tr>
+                        <tr><td>Sekhmet</td><td>5</td><td>5%</td></tr>
+                        <tr><td rowspan="3">Greed</td><td>Cor Leonis</td><td>65</td><td>65%</td></tr>
+                        <tr><td>Lion's Heart</td><td>30</td><td>30%</td></tr>
+                        <tr><td>Echidna</td><td>5</td><td>5%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note">
+                <strong>Mobs get a narrower roll.</strong>
+                A mob given Greed can only ever be Lion's Heart. A mob given Sloth rolls all three variants
+                with equal probability rather than by weight.
+            </div>
+
+            <h2 id="compatibility">Compatibility</h2>
+            <p>
+                Both Greed and Sloth track a hidden <strong>compatibility</strong> score. You earn points by
+                acting in the spirit of that Sin, and at <strong>100</strong> points the Authority becomes
+                available to you.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Authority</th><th>Earns points for</th><th>Points</th></tr></thead>
+                    <tbody>
+                        <tr><td rowspan="3">Greed</td><td>Looting a chest</td><td>5</td></tr>
+                        <tr><td>Mining ore</td><td>2</td></tr>
+                        <tr><td>Trading with a villager</td><td>1</td></tr>
+                        <tr><td rowspan="3">Sloth</td><td>Letting a tamed pet make a kill</td><td>5</td></tr>
+                        <tr><td>Sleeping through the night</td><td>2</td></tr>
+                        <tr><td>Travelling by vehicle</td><td>1</td></tr>
                     </tbody>
                 </table>
             </div>
             <p>
-                Alongside these, the ability menu also groups your magic schools and your Spirit Arts as
-                categories, so everything you can actively do lives in one place.
+                Greed rewards accumulation; Sloth rewards letting something else do the work. Both scores
+                can be read and set with <a href="/wiki/commands.html">commands</a>.
             </p>
+            <div class="note tip">
+                <strong>You do not always start from zero.</strong>
+                Starting compatibility is rolled between <strong>0 and 100</strong>, so some characters are
+                born most of the way to an Authority and others have the full climb ahead of them. The whole
+                compatibility system can be switched off in the main config.
+            </div>
 
-            <h2 id="other-abilities">Other active abilities</h2>
+            <h2 id="witch-factors">Witch Factors</h2>
             <p>
-                Several powerful actives come from Divine Protections rather than Authorities \x{2014} Judge,
-                Usurp, Tutoring, Impart Knowledge, Revitalize, Air Dash, Close Wound and Open Wound among
-                them. See <a href="/wiki/divine-protections.html">Divine Protections</a>.
+                Greed and Sloth each have an associated <a href="/wiki/witch-factors.html">Witch Factor</a>,
+                tracked separately from the Authority itself. Holding a Witch Factor burns away every Divine
+                Protection you have — the two can never coexist.
             </p>
 
-            <h3 id="material-phase">Miscellaneous actives</h3>
+            <h2 id="single-holder">One holder at a time</h2>
             <p>
-                Material Phase, Object Freeze, Ally Tracker, Base Shift, Second Shift, Book of Wisdom,
-                Mental Overload, Vision of Danger and Vision of Life all exist as their own abilities.
+                The main config has a <code>singleAuthorityHolder</code> switch that revokes an Authority
+                from its previous holder whenever it is granted to someone new. It is
+                <strong>off by default</strong> — out of the box, any number of players may hold the same
+                Authority at once. There is a matching <code>singleNamedSpiritHolder</code> for Puck and
+                Beatrice, also off by default.
             </p>
 
+            <h2 id="other-actives">Actives that are not Authorities</h2>
+            <p>
+                Several powerful actives come from <a href="/wiki/divine-protections.html">Divine
+                Protections</a> instead — Judge, Usurp, Tutoring, Impart Knowledge, Revitalize, Air Dash,
+                Close Wound and Open Wound. Your magic schools and Spirit Arts also appear as their own
+                categories, so everything you can actively do lives in one menu.
+            </p>
 
             <div class="page-nav"></div>
         </article>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sloth — HahUeuh Wiki</title>
-<meta name="description" content="The Unseen Hands \x{2014} invisible limbs for striking, grasping and moving.">
+<meta name="description" content="The Authority of Sloth in HahUeuh: Invisible Providence, Unseen Hands and Sekhmet, plus the Finger system.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,18 +20,92 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Authorities / Sloth</p>
             <h1>Sloth</h1>
-            <p class="lede">The Unseen Hands \x{2014} invisible limbs for striking, grasping and moving.</p>
+            <p class="lede">
+                Invisible limbs that strike, grasp and carry you. Three variants share a core set of
+                abilities but differ in reach, appearance, and one exclusive power each.
+            </p>
 
-            <div class="note">
-                <strong>This page is still being written.</strong>
-                The structure below is in place; the prose is not finished yet.
+            <h2 id="variants">The three variants</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Variant</th><th>Odds</th><th>Reach</th><th>Exclusive ability</th></tr></thead>
+                    <tbody>
+                        <tr><td>Invisible Providence</td><td>55%</td><td>Full</td><td>Hidden Interaction</td></tr>
+                        <tr><td>Unseen Hands</td><td>40%</td><td>Full</td><td>Self Propel, Finger Grant</td></tr>
+                        <tr><td>Sekhmet</td><td>5%</td><td><strong>Half</strong></td><td>None</td></tr>
+                    </tbody>
+                </table>
             </div>
-            <h2 id="hands">Summoning hands</h2>
-            <h2 id="quick-strike">Quick Strike</h2>
-            <h2 id="quick-grasp">Quick Grasp</h2>
-            <h2 id="self-propel">Self Propel</h2>
-            <h2 id="finger">Fingers and Finger Grant</h2>
+            <p>
+                A mob given Sloth rolls all three variants with <em>equal</em> probability rather than by
+                these weights.
+            </p>
 
+            <h2 id="shared">Shared abilities</h2>
+            <p>
+                All three variants get these. Hands reach <strong>16 blocks</strong> by default —
+                <strong>8</strong> for Sekhmet, which is halved.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Ability</th><th>Cooldown</th></tr></thead>
+                    <tbody>
+                        <tr><td>Summon Hand</td><td>10s</td></tr>
+                        <tr><td>Quick Strike</td><td>5s</td></tr>
+                        <tr><td>Quick Grasp</td><td>5s</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Hand damage scales with your own attack power — weapon attributes, Strength effects and
+                Weakness all carry through to what the hands hit for.
+            </p>
+
+            <h2 id="exclusive">Variant-exclusive abilities</h2>
+            <h3 id="invisible-providence">Invisible Providence</h3>
+            <p>
+                Gains <strong>Hidden Interaction</strong>. Its hands are the least visible of the three.
+            </p>
+
+            <h3 id="unseen-hands">Unseen Hands</h3>
+            <p>
+                Gains <strong>Self Propel</strong> — using the hands to move yourself, at a default mobility
+                speed of 8 — and <strong>Finger Grant</strong>.
+            </p>
+            <p>
+                An Unseen Hands holder has a randomised number of hands, between <strong>5 and 15</strong>,
+                derived from their UUID so it is stable for that character.
+            </p>
+
+            <h3 id="sekhmet">Sekhmet</h3>
+            <p>
+                The rarest variant at 5%. Its hands are large — a size between <strong>3 and 6</strong>,
+                again derived from UUID — mounted at the shoulders, but their reach is
+                <strong>halved</strong>. It has no exclusive ability of its own.
+            </p>
+
+            <h2 id="fingers">Fingers</h2>
+            <p>
+                <strong>Finger Grant</strong> (30 second cooldown) is exclusive to Unseen Hands. It hands a
+                portion of the Authority to someone else — the recipient becomes a <em>Finger</em> and
+                receives their own Summon Hand, Quick Strike, Quick Grasp and Self Propel.
+            </p>
+            <div class="note">
+                <strong>Finger abilities appear only once you actually have hands.</strong>
+                They are gated on holding hands rather than on the Sloth variant, so a Finger's menu stays
+                empty until the grant lands. The hand count is server-authoritative.
+            </div>
+
+            <h2 id="earning">Earning Sloth</h2>
+            <p>
+                Sloth compatibility rewards letting something else do the work: <strong>5</strong> points
+                when a tamed pet gets a kill, <strong>2</strong> for sleeping through the night,
+                <strong>1</strong> for travelling by vehicle. At <strong>100</strong> the Authority becomes
+                available.
+            </p>
+            <p>
+                Sloth-holding mobs use their quick actions with a <strong>15%</strong> chance.
+            </p>
 
             <div class="page-nav"></div>
         </article>

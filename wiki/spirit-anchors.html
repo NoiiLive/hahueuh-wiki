@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anchors &amp; contracts — HahUeuh Wiki</title>
-<meta name="description" content="Binding spirits to carried anchors, and the temporary contracts that need none.">
+<title>Anchors &amp; contracts &mdash; HahUeuh Wiki</title>
+<meta name="description" content="Binding spirits to Glintstone anchors, siphon modes, and temporary contracts in HahUeuh.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,16 +20,87 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Spirits / Anchors</p>
             <h1>Anchors &amp; contracts</h1>
-            <p class="lede">Binding spirits to carried anchors, and the temporary contracts that need none.</p>
+            <p class="lede">
+                Spirits live on a carried stone rather than following you around. Each anchor holds its own
+                spirit and its own mana.
+            </p>
 
-            <div class="note">
-                <strong>This page is still being written.</strong>
-                The structure below is in place; the prose is not finished yet.
-            </div>
             <h2 id="anchors">Anchors</h2>
-            <h2 id="managing">Managing spirits</h2>
-            <h2 id="temporary">Temporary Contract</h2>
+            <p>
+                The only valid anchor item is <strong>Glintstone</strong>. Binding a spirit writes it onto
+                that specific stack, so the anchor <em>is</em> the contract &mdash; carry it and the spirit
+                assists you, leave it in a chest and it does not.
+            </p>
+            <p>
+                A spirit only assists within <strong>16 blocks</strong>, and a spirit in an unloaded chunk
+                can never assist regardless of distance.
+            </p>
+            <div class="note">
+                <strong>Carried anchors of the same school stack.</strong>
+                Each contributes its rank's share of Output and Efficiency, so three Lesser fire spirits
+                add up rather than one overriding the others.
+            </div>
 
+            <h2 id="siphon">Siphon modes</h2>
+            <p>
+                An anchor can be set to refill its spirit's pool from one of three sources. Use the anchor
+                to cycle between them.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Mode</th><th>Draws from</th><th>Rate</th></tr></thead>
+                    <tbody>
+                        <tr><td>Player</td><td>Your own mana</td><td>50%</td></tr>
+                        <tr><td>Environment</td><td>Ambient chunk mana</td><td>35% <span class="tag stub">Puck</span></td></tr>
+                        <tr><td>None</td><td>Nothing &mdash; the spirit refills on its own</td><td>&mdash;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="managing">Managing spirits</h2>
+            <p>
+                The <strong>Manage Spirits</strong> ability opens the roster, where you can:
+            </p>
+            <ul>
+                <li><strong>Rename</strong> a spirit.</li>
+                <li><strong>Sever</strong> the contract, releasing it permanently.</li>
+                <li><strong>Toggle individual abilities</strong> a spirit is allowed to contribute to.</li>
+            </ul>
+            <p>
+                Admins can also force matters with
+                <code>/rezero spirit &lt;player&gt; unanchor &lt;all|name&gt;</code> and
+                <code>/rezero spirit &lt;player&gt; recall</code>, the latter being the fix when a spirit is
+                stranded in an unloaded chunk.
+            </p>
+
+            <h2 id="temporary">Temporary Contract</h2>
+            <p>
+                A General skill, so it needs no magic school and works with a
+                <a href="/wiki/gate.html">No Release</a> Gate. It rolls
+                <strong>1 to 5</strong> spirits in a single cast, each lasting <strong>3 minutes</strong>.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th></th><th>Value</th></tr></thead>
+                    <tbody>
+                        <tr><td>Mana cost</td><td>150</td></tr>
+                        <tr><td>Cooldown</td><td>5 minutes</td></tr>
+                        <tr><td>Duration</td><td>3 minutes</td></tr>
+                        <tr><td>Rolls</td><td>1&ndash;5</td></tr>
+                        <tr><td>Bonus to each roll</td><td>+5 percentage points</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note tip">
+                <strong>Temporary contracts ignore crowding entirely.</strong>
+                The soft-cap penalty that makes each additional permanent spirit harder to get does not
+                apply, so they stay viable no matter how many spirits you already hold. They also need no
+                anchor &mdash; they simply expire.
+            </div>
+            <p>
+                Temporary spirits stack their mana pools and schools with everything else you have, which
+                makes this the standard way to reach a spell that is normally out of range.
+            </p>
 
             <div class="page-nav"></div>
         </article>
@@ -39,7 +110,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki &mdash; an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

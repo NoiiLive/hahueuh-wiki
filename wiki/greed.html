@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Greed — HahUeuh Wiki</title>
-<meta name="description" content="Aldebaran\x{2019}s Domain, the Little King, and Lion\x{2019}s Heart.">
+<meta name="description" content="The Authority of Greed in HahUeuh: its three variants — Lion's Heart, Cor Leonis and Echidna — and every ability each one grants.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -20,18 +20,117 @@
         <article>
             <p class="crumbs"><a href="/">Home</a> / Authorities / Greed</p>
             <h1>Greed</h1>
-            <p class="lede">Aldebaran\x{2019}s Domain, the Little King, and Lion\x{2019}s Heart.</p>
+            <p class="lede">
+                Three entirely different Authorities wearing one name. Which one you get is rolled when you
+                acquire Greed, and it decides every ability you will ever have.
+            </p>
 
-            <div class="note">
-                <strong>This page is still being written.</strong>
-                The structure below is in place; the prose is not finished yet.
+            <div class="note gold">
+                <strong>The variant is everything.</strong>
+                A Lion's Heart holder and an Echidna holder share nothing but the name. There is no overlap
+                in their ability sets at all.
             </div>
-            <h2 id="domain">The Domain</h2>
-            <h3 id="victim">Victim</h3>
-            <h3 id="aggressor">Aggressor</h3>
-            <h2 id="little-king">Little King</h2>
-            <h2 id="lions-heart">Lion's Heart</h2>
 
+            <h2 id="variants">The three variants</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Variant</th><th>Odds</th><th>Theme</th></tr></thead>
+                    <tbody>
+                        <tr><td>Cor Leonis</td><td>65%</td><td>Allies — finding them, and shifting harm onto yourself.</td></tr>
+                        <tr><td>Lion's Heart</td><td>30%</td><td>Freezing time — bodies, objects, and a heart placed in another.</td></tr>
+                        <tr><td>Echidna</td><td>5%</td><td>Knowledge — a book, and the sight it grants.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                A mob given Greed can only ever roll <strong>Lion's Heart</strong>.
+            </p>
+
+            <h2 id="lionsheart">Lion's Heart</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Ability</th><th>Cooldown</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Lion's Heart</td><td>10s</td>
+                            <td>Freezes a body in time for <strong>5–10 seconds</strong> — a randomised duration each use. This is a time freeze, not a heal or a buff: the target is simply removed from the flow of events.</td>
+                        </tr>
+                        <tr>
+                            <td>Little King</td><td>60s</td>
+                            <td>Places your heart in another, at up to <strong>250 blocks</strong>. Hearts remember their position rather than tracking the entity, so they survive the target being unloaded.</td>
+                        </tr>
+                        <tr>
+                            <td>Material Phase</td><td>5s</td>
+                            <td>Requires an active Lion's Heart.</td>
+                        </tr>
+                        <tr>
+                            <td>Object Freeze</td><td>5s</td>
+                            <td>Requires an active Lion's Heart. Mobs use this with a 20% chance.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="note">
+                <strong>Only Ol Shamak may touch a frozen player.</strong>
+                A body frozen by Lion's Heart is out of time. Nothing else in the mod can affect it, and a
+                frozen player also cannot accumulate Gate strain.
+            </div>
+
+            <h2 id="corleonis">Cor Leonis</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Ability</th><th>Cooldown</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr><td>Ally Tracker</td><td>5s</td><td>Locates your allies. Tracks up to <strong>100</strong> of them.</td></tr>
+                        <tr><td>Base Shift</td><td>30s</td><td>Shifts something onto yourself. Cannot be combined with Second Shift.</td></tr>
+                        <tr><td>Second Shift</td><td>—</td><td>Takes a share of an ally's status effects, with a floor of <strong>10%</strong>.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="echidna">Echidna</h2>
+            <p>
+                Echidna is built around a single object. <strong>Every other Echidna ability requires the
+                Book of Wisdom to be summoned first</strong> — without it they refuse outright.
+            </p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Ability</th><th>Cooldown</th><th>Effect</th></tr></thead>
+                    <tbody>
+                        <tr><td>Book of Wisdom</td><td>30s</td><td>Summons or dismisses the book. The prerequisite for everything below.</td></tr>
+                        <tr><td>Mental Overload</td><td>20s</td><td>Needs the book.</td></tr>
+                        <tr><td>Vision of Danger</td><td>15s</td><td>Needs the book. A toggle.</td></tr>
+                        <tr><td>Vision of Life</td><td>15s</td><td>Needs the book. Reveals footprints, which linger <strong>30 seconds</strong>.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Echidna also gets a passive outside the ability menu: enchanting is more efficient.
+            </p>
+
+            <h2 id="domain">The Domain</h2>
+            <p>
+                Aldebaran's Domain is tracked as its own Authority rather than as a Greed variant ability,
+                and has two modes:
+            </p>
+            <ul>
+                <li><strong>Victim</strong> — the domain centres on you.</li>
+                <li><strong>Aggressor</strong> — the domain is projected onto a target.</li>
+            </ul>
+            <p>
+                The Domain has its own checkpoint slot, separate from Return by Death, and rewinds on death
+                by design. Its own config file controls it.
+            </p>
+
+            <h2 id="earning">Earning Greed</h2>
+            <p>
+                Greed compatibility rises as you accumulate: <strong>5</strong> points for looting a chest,
+                <strong>2</strong> for mining ore, <strong>1</strong> for a villager trade. At
+                <strong>100</strong> the Authority becomes available.
+            </p>
+            <p>
+                Projectile abilities reach <strong>32 blocks</strong> by default.
+            </p>
 
             <div class="page-nav"></div>
         </article>
