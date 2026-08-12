@@ -2,7 +2,7 @@
 
 The wiki for the [HahUeuh](https://github.com/NoiiLive/hahueuh) Minecraft mod.
 
-Plain static HTML. **There is no build step** — no Node, no npm, no generator. What is in this
+Plain static HTML. **There is no build step.** No Node, no npm, no generator. What is in this
 folder is exactly what gets served.
 
 ## Running it locally
@@ -21,7 +21,7 @@ If you have no Node installed, VS Code's Live Server extension or IntelliJ's bui
 
 1. Copy any file in `wiki/` as a starting point.
 2. Change the `<title>`, the `<meta name="description">`, the `.crumbs` line, the `<h1>` and the `.lede`.
-3. Write the body as ordinary HTML — `h2`/`h3`, `p`, `ul`, `table` wrapped in `.table-wrap`.
+3. Write the body as ordinary HTML: `h2`/`h3`, `p`, `ul`, `table` wrapped in `.table-wrap`.
 4. Add one line to `assets/nav.js`.
 
 That last step is the important one. `nav.js` is the single source of truth: it drives the sidebar,
@@ -40,7 +40,7 @@ there is invisible even though the file exists.
 | `<div class="note tip">` | Teal callout |
 | `<div class="note warn">` | Red callout |
 | `<div class="note gold">` | Gold callout |
-| `<span class="tag divine">` | Rarity pill — also `common`, `rare`, `legendary`, `unique` |
+| `<span class="tag divine">` | Rarity pill. Also `common`, `rare`, `legendary`, `unique` |
 | `<div class="cards"><a class="card">` | Grid of link cards |
 | `<div class="table-wrap"><table>` | Table that scrolls sideways on mobile instead of breaking the page |
 
@@ -62,13 +62,25 @@ Every push to `main` redeploys. Every other branch gets its own preview URL, whi
 way to check a page before it goes live.
 
 `_headers` sets the security headers and a content security policy. The policy is deliberately
-strict — `self` only — so if you ever add an embedded video or a webfont you will need to widen it
-there or the browser will silently block the resource.
+strict, allowing `self` only, so if you ever add an embedded video or a webfont you will need to
+widen it there or the browser will silently block the resource.
 
 ### Custom domain
 
 Pages → your project → **Custom domains**. If the domain is already on Cloudflare the DNS record is
 created for you; otherwise point a `CNAME` at the `pages.dev` address.
+
+## Writing style
+
+- **No em dashes.** Not anywhere. If you reach for one, the sentence usually wants a comma, a colon,
+  or splitting in two.
+- **Write for a player, not a developer.** Say what something does for them before you say how it
+  works. "Spirits won't talk to you" beats "commune success is multiplied by 0.35".
+- **Lead with the consequence, then the number.** Numbers on their own don't tell anyone whether to
+  care.
+- **Use tables for things that genuinely compare.** A table with one row per item and a paragraph in
+  the last column is just a paragraph with extra steps.
+- **Say "you".** It reads like a wiki rather than a specification.
 
 ## Conventions
 

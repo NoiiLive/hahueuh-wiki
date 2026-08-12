@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spirits overview — HahUeuh Wiki</title>
-<meta name="description" content="Spirit ranks, commune odds, affinity and how a contracted spirit funds your spells in HahUeuh.">
+<title>Spirits overview - HahUeuh Wiki</title>
+<meta name="description" content="How spirit contracts work in HahUeuh, what each rank is worth, and how to improve your chances of getting one.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -21,135 +21,130 @@
             <p class="crumbs"><a href="/">Home</a> / Spirits</p>
             <h1>Spirits overview</h1>
             <p class="lede">
-                A contracted spirit lends you its school, its mana, and its own Gate ratings. For a
-                character born without magic — three in four of them — this is the way in.
+                A spirit lends you its element and its magic. For the three players in four who were born
+                with no magic at all, this is the only way in.
             </p>
 
-            <h2 id="ranks">Ranks</h2>
+            <h2 id="ranks">The four ranks</h2>
             <p>
-                Four ranks. Rank sets everything: the size of the spirit's mana pool, the biggest spell it
-                can fund, and how much Output and Efficiency it lends you.
+                Rank decides everything about a spirit: how much mana it carries, how big a spell it can
+                pay for, and how much it improves your casting while you have it.
             </p>
             <div class="table-wrap">
                 <table>
                     <thead>
-                        <tr><th>Rank</th><th>Mana pool</th><th>Spell cap</th><th>Gate share</th><th>Mana per health</th></tr>
+                        <tr><th>Rank</th><th>Mana</th><th>Biggest spell it can fund</th><th>Boost to your casting</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Lesser</td><td>250</td><td>250</td><td>20% → 2</td><td>5</td></tr>
-                        <tr><td>Quasi</td><td>500</td><td>500</td><td>40% → 4</td><td>10</td></tr>
-                        <tr><td>Normal</td><td>750</td><td>750</td><td>65% → 6</td><td>15</td></tr>
-                        <tr><td>Great</td><td>1500</td><td>1500</td><td>85% → 8</td><td>20</td></tr>
-                        <tr><td>Named</td><td>—</td><td>—</td><td>—</td><td>30</td></tr>
+                        <tr><td>Lesser</td><td>250</td><td>250</td><td>Small</td></tr>
+                        <tr><td>Quasi</td><td>500</td><td>500</td><td>Moderate</td></tr>
+                        <tr><td>Normal</td><td>750</td><td>750</td><td>Large</td></tr>
+                        <tr><td>Great</td><td>1500</td><td>1500</td><td>Huge</td></tr>
                     </tbody>
                 </table>
             </div>
             <p>
-                <strong>Gate share</strong> is a percentage of the maximum Output and Efficiency, rounded
-                down — so at the default cap of 10 a Lesser spirit lends 2 of each and a Great spirit lends
-                8. Carried spirits of the <em>same school</em> add their shares together, so several small
-                spirits stack rather than one overriding the rest.
+                If you carry several spirits of the same element they add together rather than the best one
+                winning, so a handful of Lesser spirits is worth having.
             </p>
             <div class="note tip">
-                <strong>Spirit spell caps mirror your own.</strong>
-                A Great spirit's 1500 cap is the same as a Master-level caster's. This is how a low-level
-                player reaches Al Karum or Ol Shamak — by contract rather than by training.
+                <strong>A Great spirit is worth as much as being max level.</strong>
+                Its 1500 limit matches what a level 80 caster can do alone. This is how a brand new
+                character gets to cast Al Karum or Ol Shamak.
             </div>
 
-            <h3 id="levels">Spirit levels</h3>
+            <h3 id="levels">Spirits grow too</h3>
             <p>
-                Spirits level to a maximum of <strong>100</strong>, and a spirit that levels far enough
-                <em>ranks up</em>: Quasi at <strong>15</strong>, Normal at <strong>40</strong>, Great at
-                <strong>80</strong>. A Lesser spirit you keep alive is not permanently lesser.
+                Spirits gain levels up to 100, and a spirit that levels enough moves up a rank. Quasi at 15,
+                Normal at 40, Great at 80. A Lesser spirit you look after is not permanently lesser.
             </p>
 
             <h2 id="affinity">Spirit Affinity</h2>
             <p>
-                Affinity is a hidden stat rolled <strong>1–10</strong> at birth. It is judged as a
-                <em>percentage of the cap</em> rather than as a raw number, and it is the single biggest
-                factor in whether a commune succeeds.
+                Affinity is a hidden number from 1 to 10 that your character is born with. It's never shown
+                to you anywhere, and it's the single biggest factor in whether spirits will talk to you.
             </p>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>Affinity band</th><th>Commune success</th></tr></thead>
+                    <thead><tr><th>Your affinity</th><th>Chance a commune works</th></tr></thead>
                     <tbody>
-                        <tr><td>High — 80%+ of cap</td><td>75% – 90%</td></tr>
-                        <tr><td>Mid</td><td>30% – 40%</td></tr>
+                        <tr><td>High</td><td>75% to 90%</td></tr>
+                        <tr><td>Middling</td><td>30% to 40%</td></tr>
                         <tr><td>Low</td><td>1%</td></tr>
                     </tbody>
                 </table>
             </div>
             <p>
-                The Divine Protection of Gathering Spirits raises your affinity cap and weights the roll
-                toward rarer spirits.
+                That bottom row is not a typo. A character with low affinity will almost never get a spirit,
+                and there's nothing they can do about it. The Gathering Spirits blessing raises your
+                affinity and makes rarer spirits more likely to answer.
             </p>
 
             <h2 id="commune">Spirit Commune</h2>
             <p>
-                Commune is a General skill — it costs mana but needs no magic school, so a
-                <a href="/wiki/gate.html">No Release</a> Gate can still use it. It costs
-                <strong>100 mana</strong> at <strong>3 per tick</strong>, with a <strong>10 minute</strong>
-                cooldown, and ignores Gate Output so it can never fizzle.
+                Commune costs 100 mana and has a ten minute cooldown. It doesn't need a school of magic, so
+                nearly anyone can use it, and it can't fizzle no matter how weak your Gate is.
+            </p>
+            <p>
+                On success a spirit appears and offers itself. You can accept or turn it down, but either
+                way you've spent the mana and started the cooldown.
             </p>
 
-            <h3 id="modifiers">What changes your odds</h3>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Factor</th><th>Effect</th></tr></thead>
-                    <tbody>
-                        <tr><td>Carrying miasma</td><td>Multiplies success by <strong>0.35</strong></td></tr>
-                        <tr><td>Low mana</td><td>Multiplies success by <strong>0.5</strong></td></tr>
-                        <tr><td>Crowding</td><td>Each spirit past your soft cap costs <strong>20 percentage points</strong></td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <h3 id="modifiers">Things that hurt your chances</h3>
+            <ul>
+                <li><strong>Carrying miasma</strong> cuts your chance to roughly a third. Spirits don't
+                    like it. This is the main reason a heavy caster struggles to recruit.</li>
+                <li><strong>Low mana</strong> halves your chance.</li>
+                <li><strong>Already having lots of spirits</strong> costs you 20 percentage points for each
+                    one past your comfortable limit.</li>
+            </ul>
             <p>
-                The soft cap scales with affinity — 1 spirit at affinity 1, up to <strong>6</strong> at the
-                affinity cap. Going over does not block a contract, it just makes each further one less
-                likely. A high-affinity player can realistically reach about 11 spirits; someone on the 1%
-                low-affinity rate is stopped by their first.
+                That comfortable limit depends on affinity, running from one spirit at the bottom to six at
+                the top. Going past it doesn't block anything, it just makes each new spirit harder to get.
+                Someone with high affinity can realistically gather around eleven. Someone on the 1% rate
+                will struggle to get their first.
             </p>
 
-            <h3 id="what-answers">What answers the call</h3>
+            <h3 id="what-answers">What actually turns up</h3>
             <p>
-                There is a <strong>90%</strong> chance the spirit shares an element you already command —
-                spirits are drawn to a familiar Gate. Rank is rolled on relative rates:
+                Nine times in ten the spirit shares an element you already use, because spirits are drawn to
+                something familiar. Rank is mostly luck, and mostly disappointing:
             </p>
             <div class="table-wrap">
                 <table>
                     <thead><tr><th>Lesser</th><th>Quasi</th><th>Normal</th><th>Great</th></tr></thead>
-                    <tbody><tr><td>54</td><td>25</td><td>10</td><td>1</td></tr></tbody>
+                    <tbody><tr><td>about 60%</td><td>about 28%</td><td>about 11%</td><td>about 1%</td></tr></tbody>
                 </table>
             </div>
-            <p>
-                On success you are offered the spirit and may accept or decline. Declining costs you the
-                mana and the cooldown regardless.
-            </p>
 
             <h2 id="casting">Casting with a spirit</h2>
             <p>
-                When you cast, the mod funds the spell <strong>in sequence</strong> rather than pooling
-                everything together: your own elemental pools first, then a contracted spirit's reserves,
-                then your own mana. Each source pays at <em>its own</em> Output and Efficiency, so a cast
-                can genuinely be part-funded by a spirit and part by you.
+                When you cast, the game pays for the spell in order: your elemental pools first, then your
+                spirit's own reserves, then your own mana. Each one casts at its own speed and efficiency,
+                so one spell can be part funded by a spirit and part by you.
             </p>
             <div class="note">
-                <strong>A spirit does not bypass your Gate.</strong>
-                Magic funded by a spirit still leaves through you. A No Release Gate blocks it exactly as it
-                blocks your own.
+                <strong>A spirit doesn't get around your Gate.</strong>
+                Magic a spirit paid for still has to leave through you. A No Release Gate stops it exactly
+                as it stops your own.
             </div>
             <div class="note warn">
-                <strong>Distance matters.</strong>
-                A carried spirit only assists within <strong>16 blocks</strong>, and a spirit in an unloaded
-                chunk can never assist at all no matter how close it appears to be.
+                <strong>Spirits have to be nearby.</strong>
+                A spirit only helps within 16 blocks, and one sitting in an unloaded chunk can't help at all
+                even if the map says it's close. If yours has gone quiet, try
+                <code>/rezero spirit &lt;player&gt; recall</code>.
             </div>
 
             <h2 id="temporary">Temporary contracts</h2>
             <p>
-                Temporary Contract rolls several short-lived spirits at once. Each roll gets
-                <strong>+5 percentage points</strong> over a permanent commune because the bond is fleeting,
-                and temporary rolls <strong>ignore the crowding penalty entirely</strong> — so they stay
-                viable when you already hold more spirits than your affinity really supports.
+                Temporary Contract rolls up to five short lived spirits at once. Each roll is 5 points more
+                likely to succeed than a permanent commune, and crucially they ignore the crowding penalty
+                completely.
+            </p>
+            <p>
+                That makes them the reliable option once you already have a few spirits, and the usual way
+                players reach a spell that's normally out of range. See
+                <a href="/wiki/spirit-anchors.html">Anchors and contracts</a>.
             </p>
 
             <div class="page-nav"></div>
@@ -160,7 +155,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki. An unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

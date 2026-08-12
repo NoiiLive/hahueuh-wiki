@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spell list — HahUeuh Wiki</title>
-<meta name="description" content="Every spell in the HahUeuh mod, with its default mana cost, cast rate and cooldown.">
+<title>Spell list - HahUeuh Wiki</title>
+<meta name="description" content="Every spell in the HahUeuh mod, what it does, and what it costs.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -21,174 +21,173 @@
             <p class="crumbs"><a href="/">Home</a> / Magic / Spells</p>
             <h1>Spell list</h1>
             <p class="lede">
-                Sixteen spells, plus two General skills. Every one of them is Yin.
+                Sixteen spells, plus two skills that aren't really spells. All sixteen belong to Yin.
             </p>
 
             <div class="note gold">
-                <strong>Only Yin has spells right now.</strong>
-                Fire, Water, Earth, Wind and Yang exist as schools — they can be rolled at birth, granted
-                by an affinity protection, and lent by a spirit — but no spell has been written for them
-                yet. Being born with Fire currently gives you nothing to cast.
+                <strong>Only Yin has spells so far.</strong>
+                Fire, Water, Earth, Wind and Yang all exist as schools. You can be born with them, be
+                granted them by a blessing, or borrow them from a spirit. There just isn't anything written
+                for them to cast yet. If you rolled Fire, you currently have nothing to show for it.
             </div>
 
             <p>
-                All numbers below are the shipped defaults from the Yin magic config. Every one is
-                adjustable, so a server may not match. <strong>Total</strong> is the whole mana cost of the
-                cast; <strong>per tick</strong> is the rate it is drawn at, which is what your Gate's Output
-                is checked against to decide whether the cast succeeds or fizzles.
+                Two numbers matter for each spell. <strong>Cost</strong> is the total mana it takes.
+                <strong>Speed</strong> is how fast that mana gets pulled out of you, and it's the number
+                your Gate's Output is measured against to decide whether the spell works or fizzles. If a
+                spell keeps failing, that's why. See <a href="/wiki/gate.html">The Gate</a>.
             </p>
 
-            <h2 id="shamak">The Shamak line — darkness and denial</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Cooldown</th><th>Effect</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>Shamak</td><td>100</td><td>3</td><td>15s</td>
-                            <td>An ink cloud expands to a <strong>16 block</strong> radius, inflicting Sensory Deprivation for <strong>10s</strong> on everything but you. Mobs caught in it lose their target.</td>
-                        </tr>
-                        <tr>
-                            <td>El Shamak</td><td>300</td><td>5</td><td>20s</td>
-                            <td>Smaller radius (<strong>10 blocks</strong>) but inflicts Bodily Disconnect for <strong>8s</strong> instead. Also wipes mob targeting.</td>
-                        </tr>
-                        <tr>
-                            <td>Ul Shamak</td><td>500</td><td>7</td><td>60s</td>
-                            <td>Summons a black hole where you are looking, up to 20 blocks away. Pulls from <strong>12 blocks</strong>, event horizon <strong>3 blocks</strong>, <strong>3 damage</strong> at the core, consumes 6 blocks per tick, lasts <strong>6s</strong>.</td>
-                        </tr>
-                        <tr>
-                            <td>Al Karum</td><td>1000</td><td>8</td><td>90s</td>
-                            <td>The same black hole, empowered. Pull radius <strong>24</strong>, event horizon <strong>6</strong>, <strong>6 damage</strong>, 12 blocks per tick, cast up to 24 blocks away.</td>
-                        </tr>
-                        <tr>
-                            <td>Al Shamak</td><td>1000</td><td>9</td><td>120s</td>
-                            <td>Banishes a target into a pocket dimension for <strong>15s</strong>, taking everything within <strong>10 blocks</strong> of them along. Non-players can be held indefinitely instead, and it doubles as spell storage.</td>
-                        </tr>
-                        <tr>
-                            <td>Ol Shamak</td><td>1250</td><td>10</td><td>90s</td>
-                            <td>Seals a target within <strong>24 blocks</strong> for <strong>60s</strong> — they cannot move, act, or be moved. The seal has <strong>40 health</strong> and can be broken by damaging it.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h2 id="shamak">Shamak: darkness and shutting people down</h2>
+
+            <h3 id="shamak-basic">Shamak</h3>
+            <p>
+                An ink cloud spreads 16 blocks around you and blinds everything caught in it for 10 seconds.
+                Mobs inside forget what they were attacking. Costs 100 mana at a speed of 3, with a 15
+                second cooldown.
+            </p>
+
+            <h3 id="el-shamak">El Shamak</h3>
+            <p>
+                A tighter cloud, 10 blocks, but instead of blinding people it disconnects them from their
+                own bodies for 8 seconds. Also wipes mob targeting. Costs 300 at speed 5, 20 second
+                cooldown.
+            </p>
+
+            <h3 id="ul-shamak">Ul Shamak</h3>
+            <p>
+                Drops a black hole wherever you're looking, up to 20 blocks away. It drags things in from 12
+                blocks, deals 3 damage at its centre, eats the terrain, and lasts 6 seconds. Costs 500 at
+                speed 7, one minute cooldown.
+            </p>
+
+            <h3 id="al-karum">Al Karum</h3>
+            <p>
+                The same black hole, much bigger. Pulls from 24 blocks, hits for 6, and chews through
+                terrain twice as fast. Costs 1000 at speed 8, 90 second cooldown.
+            </p>
+
+            <h3 id="al-shamak">Al Shamak</h3>
+            <p>
+                Banishes whoever you target into a pocket dimension for 15 seconds, and takes everything
+                within 10 blocks of them along for the ride. Mobs can be held there indefinitely rather than
+                released, and the same spell doubles as a way to store another spell for later. Costs 1000
+                at speed 9, two minute cooldown.
+            </p>
+
+            <h3 id="ol-shamak">Ol Shamak</h3>
+            <p>
+                Seals someone up to 24 blocks away for a full minute. They can't move, act, or be moved by
+                anyone else. The seal has 40 health, so allies can break it early by attacking it. Costs
+                1250 at speed 10, 90 second cooldown.
+            </p>
             <div class="note">
-                <strong>A sealed target cannot be banished.</strong>
-                Al Shamak refuses anyone already held by Ol Shamak, and skips sealed bystanders when it
-                sweeps up the group around its target.
+                <strong>You can't banish someone who's already sealed.</strong>
+                Al Shamak refuses anyone held by Ol Shamak, and skips sealed bystanders when it sweeps up
+                everyone around its target.
             </div>
 
-            <h2 id="minya">The Minya line — ice stakes</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Cooldown</th><th>Effect</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>Minya</td><td>150</td><td>3</td><td>8s</td>
-                            <td><strong>3 stakes</strong> at <strong>6 damage</strong> each, homing onto whatever you were looking at within 24 blocks. Applies Crystallize for 2s; a crystallized target that shatters takes 20% extra and throws homing shards.</td>
-                        </tr>
-                        <tr>
-                            <td>El Minya</td><td>300</td><td>5</td><td>15s</td>
-                            <td><strong>15 stakes</strong> at <strong>4 damage</strong>, scattered around you before launching. Land 3 within one second and they detonate for <strong>8 damage</strong> in a <strong>4 block</strong> radius.</td>
-                        </tr>
-                        <tr>
-                            <td>Ul Minya</td><td>1000</td><td>8</td><td>60s</td>
-                            <td>Binds a single target within <strong>24 blocks</strong> in a ring for <strong>3s</strong>, then deals <strong>40 damage</strong>. Requires a locked target.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h2 id="minya">Minya: ice stakes</h2>
 
-            <h2 id="gravity">Gravity — Vita and Murak</h2>
+            <h3 id="minya-basic">Minya</h3>
             <p>
-                These three are opposites and share a pattern: <strong>shift while casting to apply it to
-                yourself indefinitely</strong>, or cast it normally at a target you are looking at. Casting
-                it on yourself again turns it off.
+                Three stakes form around you and fly at whatever you're looking at, 6 damage each. They
+                leave the target crystallised for a couple of seconds, and if that crystal shatters it deals
+                another 20% and throws homing shards. Costs 150 at speed 3, 8 second cooldown.
             </p>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Cooldown</th><th>Effect</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>Vita</td><td>200</td><td>3</td><td>10s</td>
-                            <td>Increases gravity on a target within 24 blocks — <strong>1.5×</strong> gravity and <strong>1.5×</strong> fall damage.</td>
-                        </tr>
-                        <tr>
-                            <td>El Vita</td><td>500</td><td>5</td><td>20s</td>
-                            <td><strong>2×</strong> gravity and fall damage. A fall of 5 blocks or more leaves a crater.</td>
-                        </tr>
-                        <tr>
-                            <td>Murak</td><td>200</td><td>3</td><td>10s</td>
-                            <td>The reverse — reduces gravity to near nothing and grants drifting flight, with a gust every 2 seconds.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+            <h3 id="el-minya">El Minya</h3>
+            <p>
+                Fifteen stakes instead of three, at 4 damage each. Land three of them within a second and
+                they detonate for 8 damage across 4 blocks. Costs 300 at speed 5, 15 second cooldown.
+            </p>
+
+            <h3 id="ul-minya">Ul Minya</h3>
+            <p>
+                Locks a single target in a ring for 3 seconds and then hits them for 40. You need a target
+                within 24 blocks to cast it. Costs 1000 at speed 8, one minute cooldown.
+            </p>
+
+            <h2 id="gravity">Vita and Murak: messing with gravity</h2>
+            <p>
+                These three work the same way. Cast normally to affect whoever you're looking at, or hold
+                shift while casting to affect yourself for as long as you like. Casting it on yourself again
+                switches it off.
+            </p>
+
+            <h3 id="vita">Vita</h3>
+            <p>
+                Makes a target heavier. Gravity and fall damage both go up by half. Costs 200 at speed 3, 10
+                second cooldown.
+            </p>
+
+            <h3 id="el-vita">El Vita</h3>
+            <p>
+                The stronger version. Gravity and fall damage both double, and anyone who falls more than
+                five blocks leaves a crater where they land. Costs 500 at speed 5, 20 second cooldown.
+            </p>
+
+            <h3 id="murak">Murak</h3>
+            <p>
+                The opposite. Gravity almost disappears and the target drifts, getting a small push every
+                couple of seconds. Costs 200 at speed 3, 10 second cooldown.
+            </p>
             <div class="note warn">
-                <strong>Vita is not a healing spell.</strong>
-                Despite the name, nothing in this mod's Vita line restores health.
+                <strong>Vita isn't a healing spell.</strong>
+                The name suggests it, but nothing in the Vita line restores health.
             </div>
 
-            <h2 id="utility">Movement and utility</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Cooldown</th><th>Effect</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>Teleportation</td><td>200 base</td><td>8</td><td>60s</td>
-                            <td>Costs <strong>5 mana per block</strong> travelled on top of the base. Moving yourself adds <strong>100</strong>; opening a lasting portal instead adds <strong>200</strong> and leaves a <strong>1.5 block</strong> gateway standing for <strong>15s</strong>.</td>
-                        </tr>
-                        <tr>
-                            <td>Door Crossing</td><td>700</td><td>5</td><td>30s</td>
-                            <td>Look at a door within 6 blocks to arm it. For <strong>15s</strong> it leads into a private room <strong>75 blocks</strong> across and <strong>32</strong> high. Other doors within 100 blocks have a <strong>10%</strong> chance of becoming strays into it.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h2 id="utility">Getting around</h2>
 
-            <h2 id="sustained">Sustained — E.M.M. and E.M.T.</h2>
+            <h3 id="teleportation">Teleportation</h3>
             <p>
-                Both are toggles rather than one-shot casts. You pay the cast cost to raise them, then an
-                upkeep every second until you drop them or run dry. Casting again ends them early, and
-                re-casting has no cooldown while active.
+                Costs 200 to start, plus 5 more for every block you travel. Moving yourself adds another
+                100. Instead of travelling you can open a gateway that stays put for 15 seconds, which costs
+                200 extra and lets other people walk through. One minute cooldown.
             </p>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Spell</th><th>Total</th><th>Per tick</th><th>Upkeep</th><th>Cooldown</th><th>Effect</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>E.M.M.</td><td>600</td><td>7</td><td>50/s</td><td>60s</td>
-                            <td>Stillness on yourself. While it is up, no other spell may be cast.</td>
-                        </tr>
-                        <tr>
-                            <td>E.M.T.</td><td>700</td><td>8</td><td>50/s</td><td>90s</td>
-                            <td>Anchors a silence field of <strong>25 block</strong> radius where you cast it. Anyone inside is cut off from casting and from charging mana.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+            <h3 id="door-crossing">Door Crossing</h3>
+            <p>
+                Look at a door within 6 blocks and it becomes an entrance to a private room, 75 blocks
+                across and 32 high, for the next 15 seconds. Other doors within 100 blocks have a 1 in 10
+                chance of quietly leading there too. Costs 700 at speed 5, 30 second cooldown.
+            </p>
+
+            <h2 id="sustained">E.M.M. and E.M.T.: spells you hold up</h2>
+            <p>
+                These two aren't cast and forgotten. You pay to raise them, then keep paying 50 mana every
+                second until you drop them or run out. Casting again ends it early, and there's no cooldown
+                while it's still up.
+            </p>
+
+            <h3 id="emm">E.M.M.</h3>
+            <p>
+                Locks you in stillness. While it's up you can't cast anything else. Costs 600 to raise at
+                speed 7, one minute cooldown once it ends.
+            </p>
+
+            <h3 id="emt">E.M.T.</h3>
+            <p>
+                Plants a silence field 25 blocks across where you cast it. Anyone standing in it can't cast
+                and can't gather mana. Costs 700 at speed 8, 90 second cooldown.
+            </p>
             <div class="note tip">
-                <strong>Spirits pay the upkeep too.</strong>
-                The per-second drain is taken from your spirit pools first and only then from your own mana,
-                exactly like the cast itself.
+                <strong>Your spirits help pay the upkeep.</strong>
+                That 50 per second comes out of your spirits first and only then out of your own mana, the
+                same as a normal cast.
             </div>
 
-            <h2 id="general">General skills</h2>
+            <h2 id="general">The two skills that aren't spells</h2>
             <p>
-                These cost mana but belong to no school, so a <a href="/wiki/gate.html">No Release</a> Gate
-                can still use them.
+                Spirit Commune and Temporary Contract cost mana but don't belong to any school, so even a
+                <a href="/wiki/gate.html">No Release</a> Gate can use them. Neither one can fizzle, no
+                matter how low your Output is. See <a href="/wiki/spirits.html">Spirits</a>.
             </p>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Skill</th><th>Effect</th></tr></thead>
-                    <tbody>
-                        <tr><td>Spirit Commune</td><td>Attempt a permanent contract with a spirit. Ignores Gate Output, so it cannot fizzle.</td></tr>
-                        <tr><td>Temporary Contract</td><td>Rolls several short-lived spirits at once. Also ignores Gate Output.</td></tr>
-                    </tbody>
-                </table>
-            </div>
 
-            <h2 id="mobs">Mobs and spells</h2>
+            <h2 id="mobs">What mobs can cast</h2>
             <p>
-                Magic-using mobs roll their own chance to know each spell. Defaults:
+                Magic-using mobs each roll for which spells they know. A mob is most likely to have Minya
+                and least likely to have Al Karum.
             </p>
             <div class="table-wrap">
                 <table>
@@ -203,9 +202,9 @@
                 </table>
             </div>
             <div class="note warn">
-                <strong>Mobs can never cast the rest.</strong>
-                Al Shamak, Ol Shamak, Murak, Teleportation, Door Crossing, E.M.M. and E.M.T. have no mob
-                chance at all and are hard-barred, no matter what schools a mob is given.
+                <strong>Mobs can never get the rest.</strong>
+                Al Shamak, Ol Shamak, Murak, Teleportation, Door Crossing, E.M.M. and E.M.T. are off limits
+                to mobs entirely, whatever schools they're given.
             </div>
 
             <div class="page-nav"></div>
@@ -216,7 +215,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki. An unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

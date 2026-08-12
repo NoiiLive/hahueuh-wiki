@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Configuration &mdash; HahUeuh Wiki</title>
+<title>Configuration - HahUeuh Wiki</title>
 <meta name="description" content="Where HahUeuh's config files live on each loader, what each one controls, and the settings most worth changing.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
@@ -21,97 +21,94 @@
             <p class="crumbs"><a href="/">Home</a> / Reference / Configuration</p>
             <h1>Configuration</h1>
             <p class="lede">
-                Ten TOML files, every one heavily commented. Nearly every number quoted anywhere on this
-                wiki comes from here and can be changed.
+                Ten files, all of them heavily commented. Nearly every number quoted anywhere on this wiki
+                comes from here, and all of them can be changed.
             </p>
 
-            <h2 id="where">Where the files live</h2>
+            <h2 id="where">Where the files are</h2>
             <div class="note warn">
-                <strong>The location differs by loader, and this catches people out constantly.</strong>
-                Editing the wrong copy is the single most common reason a config change appears to do
-                nothing.
+                <strong>The location is different on each loader, and this catches people out constantly.</strong>
+                Editing the wrong copy is far and away the most common reason a change seems to do nothing.
             </div>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>Loader</th><th>Scope</th><th>Path</th></tr></thead>
+                    <thead><tr><th>Loader</th><th>Look in</th></tr></thead>
                     <tbody>
                         <tr>
-                            <td>NeoForge 1.21.1</td><td>SERVER</td>
-                            <td><code>&lt;world&gt;/serverconfig/hahueuh/server/</code></td>
+                            <td>NeoForge 1.21.1</td>
+                            <td><code>&lt;your world folder&gt;/serverconfig/hahueuh/server/</code></td>
                         </tr>
                         <tr>
-                            <td>Forge 1.20.1</td><td>COMMON</td>
+                            <td>Forge 1.20.1</td>
                             <td><code>config/hahueuh/</code></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <p>
-                On NeoForge the settings are <strong>per world</strong> &mdash; a new world starts from
-                defaults again, and a file you edited in the global config folder will be ignored. On Forge
-                they are global and shared by every world.
+                On NeoForge the settings belong to each world, so a new world starts fresh and anything you
+                edited in the main config folder is ignored. On Forge they're global and every world shares
+                them.
             </p>
 
-            <h2 id="files">The ten files</h2>
+            <h2 id="files">What's in each file</h2>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>File</th><th>Controls</th></tr></thead>
+                    <thead><tr><th>File</th><th>Covers</th></tr></thead>
                     <tbody>
-                        <tr><td><code>authority_main.toml</code></td><td>Single-holder switches, compatibility, Witch Factor behaviour and mob spawning, Sage Candidate chance.</td></tr>
-                        <tr><td><code>player_main.toml</code></td><td>Stat rolls and per-stat bonuses, all stat XP rates, race lifespans, ageing, Insanity.</td></tr>
-                        <tr><td><code>magic_main.toml</code></td><td>Gate rolls, strain thresholds and decay, overcharge, cast-fail ratio, spell caps, starting magic, mana and Od multipliers, miasma, the crippled state.</td></tr>
-                        <tr><td><code>magic_yin.toml</code></td><td>Every Yin spell's mana, cast rate, cooldown and effect values, plus mob spell chances.</td></tr>
-                        <tr><td><code>divine_protection_main.toml</code></td><td>Roll chances, the four rarity pools, the unique list, and per-protection tuning.</td></tr>
-                        <tr><td><code>spirit_main.toml</code></td><td>Commune odds, affinity, rank stats, spell caps, named spirits.</td></tr>
-                        <tr><td><code>return_by_death.toml</code></td><td>Checkpoint triggers and intervals, notifications, Witch's Scent.</td></tr>
+                        <tr><td><code>authority_main.toml</code></td><td>Whether Authorities are exclusive, how they're earned, Witch Factors and the mobs that carry them.</td></tr>
+                        <tr><td><code>player_main.toml</code></td><td>Stat rolls and what each stat gives, how fast things train, race lifespans, ageing, Insanity.</td></tr>
+                        <tr><td><code>magic_main.toml</code></td><td>Gate rolls, strain, overcharging, spell size limits, starting magic, mana and Od, miasma, and the crippled state.</td></tr>
+                        <tr><td><code>magic_yin.toml</code></td><td>Every spell's cost, speed, cooldown and damage, plus what mobs can cast.</td></tr>
+                        <tr><td><code>divine_protection_main.toml</code></td><td>Roll chances, the four rarity lists, which blessings are unique, and per blessing tuning.</td></tr>
+                        <tr><td><code>spirit_main.toml</code></td><td>Commune odds, affinity, what each rank is worth, Puck and Beatrice.</td></tr>
+                        <tr><td><code>return_by_death.toml</code></td><td>When the world saves, whether players are told, and Witch's Scent.</td></tr>
                         <tr><td><code>domain.toml</code></td><td>Aldebaran's Domain.</td></tr>
-                        <tr><td><code>sloth.toml</code></td><td>Hand reach and count, variant weights, Sekhmet sizing, compatibility points.</td></tr>
-                        <tr><td><code>greed.toml</code></td><td>All Greed ability cooldowns, Little King range, variant weights, compatibility points.</td></tr>
+                        <tr><td><code>sloth.toml</code></td><td>Hand reach and count, variant odds, Sekhmet sizing, how Sloth is earned.</td></tr>
+                        <tr><td><code>greed.toml</code></td><td>Every Greed cooldown, Little King range, variant odds, how Greed is earned.</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2 id="worth-changing">Settings most worth changing</h2>
+            <h2 id="worth-changing">The settings people actually change</h2>
 
-            <h3 id="rarity-pools">Which protections can be rolled</h3>
+            <h3 id="rarity-pools">Which blessings can appear</h3>
             <p>
-                The four rarity lists in <code>divine_protection_main.toml</code> <em>are</em> the rolling
-                pool. Move an id between lists to change how rare it is, or delete it from every list to
-                remove it from rolls entirely. An id that is listed but not registered is simply ignored.
+                The four rarity lists in the blessing config <em>are</em> the pool. Move an id from one list
+                to another to change how rare it is, or delete it from all four to take it out of the game
+                entirely. An id that's listed but doesn't exist is just ignored.
             </p>
             <p>
-                This is how <code>hahueuh:od_lagna</code> is normally kept out of circulation &mdash; it
-                ships in the Divine pool, but a holder can eventually accumulate almost every protection in
-                the game.
+                This is how <code>hahueuh:od_lagna</code> usually gets removed. It ships in the Divine list,
+                but whoever holds it eventually collects nearly every blessing there is.
             </p>
 
             <h3 id="rbd-frequency">How often the world rewinds</h3>
             <p>
-                In <code>return_by_death.toml</code>, each of the three checkpoint triggers can be disabled
-                independently, and each has its own chance. <code>showCheckpointNotification</code> is off
-                by default &mdash; turning it on makes the system far easier to understand while learning it.
+                Each of the three save triggers can be switched off on its own, and each has its own chance
+                to fire. The notification is off by default, and turning it on makes the whole system much
+                easier to understand while people are still learning it.
             </p>
 
-            <h3 id="single-holder">Whether Authorities are exclusive</h3>
+            <h3 id="single-holder">Whether Authorities are one to a server</h3>
             <p>
-                <code>singleAuthorityHolder</code> and <code>singleNamedSpiritHolder</code> in
-                <code>authority_main.toml</code> are both <strong>off</strong> by default, so any number of
-                players can hold the same Authority. Turn them on for a server where these are meant to be
-                scarce.
+                Both the Authority and named spirit exclusivity settings are off by default, so anyone can
+                hold anything. Turn them on for a server where these are supposed to be rare and fought
+                over.
             </p>
 
-            <h3 id="crippled">How harsh running out of Od is</h3>
+            <h3 id="crippled">How badly running out of Od hurts</h3>
             <p>
-                <code>crippledEnabled</code> in <code>magic_main.toml</code> defaults to <strong>true</strong>,
-                which makes spending your last Od permanent and irreversible. Setting it false swaps that
-                for a 20 minute magic lockout instead. See <a href="/wiki/magic.html">Magic</a>.
+                By default emptying your Od cripples you permanently. Switching that off replaces it with a
+                twenty minute magic lockout, which is far more forgiving for a casual server. See
+                <a href="/wiki/magic.html">Magic</a>.
             </p>
 
-            <h3 id="master-toggles">Turning whole features off</h3>
+            <h3 id="master-toggles">Turning whole systems off</h3>
             <p>
-                Several systems have a single master switch: Divine Protections, starting magic, ageing,
-                compatibility, Witch's Scent, mob Witch Factors and the checkpoint timer can each be
-                disabled outright without touching anything else.
+                Several things have a single on or off switch: blessings, starting magic, ageing, how
+                Authorities are earned, Witch's Scent, mobs with Witch Factors, and the save timer. Each can
+                go without disturbing anything else.
             </p>
 
             <div class="page-nav"></div>
@@ -122,7 +119,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki &mdash; an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki. An unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

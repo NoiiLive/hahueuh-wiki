@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Getting started — HahUeuh Wiki</title>
+<title>Getting started - HahUeuh Wiki</title>
 <meta name="description" content="Install HahUeuh and understand what happens the first time you join a world.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
@@ -21,11 +21,11 @@
             <p class="crumbs"><a href="/">Home</a> / Getting started</p>
             <h1>Getting started</h1>
             <p class="lede">
-                Installing the mod, and what the world decides about your character in the first second
+                How to install the mod, and what the world decides about your character in the first second
                 after you join.
             </p>
 
-            <h2 id="install">Installation</h2>
+            <h2 id="install">Installing</h2>
             <div class="table-wrap">
                 <table>
                     <thead><tr><th>Minecraft</th><th>Loader</th><th>Mod version</th></tr></thead>
@@ -36,86 +36,118 @@
                 </table>
             </div>
             <ol>
-                <li>Install the matching loader for your Minecraft version.</li>
-                <li>Drop the HahUeuh jar into your <code>mods</code> folder.</li>
-                <li>Launch once so the config files are written, then stop the game.</li>
-                <li>Adjust anything you want in <a href="/wiki/configuration.html">the config</a>, and launch again.</li>
+                <li>Install the loader that matches your Minecraft version.</li>
+                <li>Put the HahUeuh jar in your <code>mods</code> folder.</li>
+                <li>Launch the game once so the config files get written, then close it.</li>
+                <li>Change anything you want in <a href="/wiki/configuration.html">the config</a>, then launch again.</li>
             </ol>
 
             <div class="note warn">
-                <strong>Install it on the server and every client.</strong>
-                HahUeuh is not server-only. A client without it cannot render the Book of Life, the ability
-                HUD, or any of the Authority effects, and will be kicked or desync badly.
+                <strong>Everyone needs the mod, including the server.</strong>
+                This isn't a server-only mod. A player without it can't see the Book of Life, the ability
+                bar or any of the visual effects, and will desync badly or get kicked.
             </div>
 
             <h2 id="first-join">Your first join</h2>
             <p>
-                The moment you first enter a world, the mod rolls your character. This happens once and is
-                never repeated — dying, respawning, or even a Return by Death will not re-roll it.
+                The moment you enter a world for the first time, the game rolls your character. This happens
+                once and never again. Dying won't re-roll it, and neither will a Return by Death.
             </p>
+            <p>Here's what gets decided:</p>
             <ul>
-                <li><strong>Stats</strong> — six stats, each given a proficiency and a capacity from 1 to 10, plus a starting level. See <a href="/wiki/stats.html">Stats</a>.</li>
-                <li><strong>Lifespan</strong> — rolled within your race's range. Everyone starts Human; race only changes by command.</li>
-                <li><strong>Magic</strong> — a chain of rolls decides how many schools you are born with. <strong>75% of players get none.</strong></li>
-                <li><strong>The Gate</strong> — Open if you were born with magic, Partly Open if you were not, with a flat 5% chance of being Defective instead. Its Output and Efficiency are rolled 1–10. See <a href="/wiki/gate.html">The Gate</a>.</li>
-                <li><strong>Divine Protections</strong> — a chain of rolls at 25%, then 15%, then 5%. See <a href="/wiki/divine-protections.html">Divine Protections</a>.</li>
+                <li><strong>Your six stats.</strong> Each gets a hidden growth rate and a hidden ceiling.
+                    See <a href="/wiki/stats.html">Stats</a>.</li>
+                <li><strong>How long you live.</strong> Everyone starts Human, so somewhere between 80 and
+                    120 years. This matters more than it sounds, because it sets how much mana you can hold.</li>
+                <li><strong>Whether you know any magic.</strong> Most people don't.</li>
+                <li><strong>Your Gate.</strong> Open if you were born with magic, Partly Open if you
+                    weren't. There's a small chance it comes out broken instead.
+                    See <a href="/wiki/gate.html">The Gate</a>.</li>
+                <li><strong>Your Divine Protections.</strong> See
+                    <a href="/wiki/divine-protections.html">Divine Protections</a>.</li>
             </ul>
+
+            <h3 id="odds">The odds, roughly</h3>
             <p>
-                The magic chain runs 25% for a first school, then 23%, 21%, 19%, 17%, 15% — but because the
-                rolls compound it thins out fast. Roughly <strong>1 in 5</strong> players is born with one
-                school, <strong>1 in 22</strong> with two, <strong>1 in 102</strong> with three, and
-                <strong>1 in 17,000</strong> with all six.
+                Both magic and blessings work the same way. You get one roll, and if it succeeds you get
+                another, slightly harder one. It keeps going until a roll fails.
             </p>
-            <div class="note warn">
-                <strong>Being born with magic may still leave you with nothing to cast.</strong>
-                Only the Yin school has spells implemented. Rolling Fire, Water, Earth, Wind or Yang
-                currently grants the school and opens your Gate, but there is no spell in it yet.
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>What you're born with</th><th>How likely</th></tr></thead>
+                    <tbody>
+                        <tr><td>No magic at all</td><td>3 players in 4</td></tr>
+                        <tr><td>One school of magic</td><td>1 in 5</td></tr>
+                        <tr><td>Two schools</td><td>1 in 22</td></tr>
+                        <tr><td>Three schools</td><td>1 in 102</td></tr>
+                        <tr><td>All six schools</td><td>1 in 17,000</td></tr>
+                        <tr><td>No Divine Protection</td><td>3 players in 4</td></tr>
+                        <tr><td>One Divine Protection</td><td>1 in 4</td></tr>
+                        <tr><td>Four or more</td><td>Impossible</td></tr>
+                    </tbody>
+                </table>
             </div>
-            <p>
-                None of this is visible in chat beyond a couple of lines. To actually read your character,
-                open the <a href="/wiki/book-of-life.html">Book of Life</a>.
-            </p>
+
+            <div class="note warn">
+                <strong>Being born with magic doesn't always mean you can cast.</strong>
+                Only Yin has spells written for it so far. If you roll Fire, Water, Earth, Wind or Yang you
+                get the school and an open Gate, but there's nothing in it to cast yet.
+            </div>
 
             <h2 id="first-things">What to do first</h2>
-            <h3>Check what you were born with</h3>
+
+            <h3 id="check">Look at what you were given</h3>
             <p>
-                Open the Book of Life and look at your Gate and your stats. If your Gate is
-                <em>Partly Open</em> and you have no schools, you are not a caster this life — put your
-                points into what you did get.
+                Open the <a href="/wiki/book-of-life.html">Book of Life</a> and check your Gate and your
+                stats. If your Gate says Partly Open and you have no schools, you're not a caster this life.
+                Lean into whatever you did get instead.
             </p>
 
-            <h3>Understand that you will rewind</h3>
+            <h3 id="expect-rewind">Expect to lose progress</h3>
             <p>
-                Return by Death is on by default. The world checkpoints itself quietly as you play, and
-                when you die it rolls back — not just you, but the terrain, the mobs, the weather and
-                everyone else on the server. Read
-                <a href="/wiki/return-by-death.html">Return by Death</a> before you build anything you
-                would be upset to lose.
+                Return by Death is on by default. The world saves itself every minute or so, and when you
+                die it goes back to that save. Not just you: the terrain, the mobs, the weather and everyone
+                else on the server.
+            </p>
+            <p>
+                Read <a href="/wiki/return-by-death.html">Return by Death</a> before you build anything you
+                would hate to lose.
             </p>
 
             <div class="note tip">
-                <strong>Playing solo?</strong>
-                Return by Death is far more forgiving in singleplayer, because a checkpoint is only ever
-                taken while someone is online. On an empty server the mod deliberately skips them.
+                <strong>Playing on your own is much gentler.</strong>
+                The world only saves while somebody is online, so an empty server never drifts. In
+                singleplayer you'll rarely lose more than a minute.
             </div>
 
-            <h3>Find out whether you can cast</h3>
+            <h3 id="find-magic">See if you can borrow magic</h3>
             <p>
-                Even with no schools of your own, you can still reach magic through
-                <a href="/wiki/spirits.html">spirits</a> — a contracted spirit will fund spells from its
-                own school and its own reserves. Spirit Commune costs mana but not a magic school, so it
-                is open to nearly everyone.
+                Even with no schools of your own you can still cast, by making a contract with a
+                <a href="/wiki/spirits.html">spirit</a>. The spirit brings its own element and its own mana.
+                Spirit Commune costs mana but doesn't need a school, so almost anyone can try it.
             </p>
 
-            <h2 id="troubleshooting">If something looks wrong</h2>
+            <h2 id="troubleshooting">If something looks broken</h2>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>Symptom</th><th>Likely cause</th></tr></thead>
+                    <thead><tr><th>What you're seeing</th><th>What's probably going on</th></tr></thead>
                     <tbody>
-                        <tr><td>Config changes do nothing</td><td>Server-scoped configs live in the world folder, not the global <code>config</code> directory. You may be editing a stale file — see <a href="/wiki/configuration.html">Configuration</a>.</td></tr>
-                        <tr><td>Abilities missing from the menu</td><td>Ability slots prune themselves when you lose the protection or authority that granted them.</td></tr>
-                        <tr><td>Bonus hearts vanish on rejoin</td><td>Fixed in recent versions. Update the mod.</td></tr>
-                        <tr><td>The world stutters every few minutes</td><td>That was checkpoint capture running on the main thread. Fixed — update the mod.</td></tr>
+                        <tr>
+                            <td>Config changes do nothing</td>
+                            <td>You're editing the wrong copy. On NeoForge the settings live inside the world folder, not the main config folder. See <a href="/wiki/configuration.html">Configuration</a>.</td>
+                        </tr>
+                        <tr>
+                            <td>An ability vanished from your bar</td>
+                            <td>Slots clear themselves when you lose the protection or Authority that gave you the ability.</td>
+                        </tr>
+                        <tr>
+                            <td>Bonus hearts empty every time you log in</td>
+                            <td>An old bug. Update the mod.</td>
+                        </tr>
+                        <tr>
+                            <td>The game stutters every minute or so</td>
+                            <td>That was the world saving itself. Also fixed, so update.</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -128,7 +160,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki. An unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

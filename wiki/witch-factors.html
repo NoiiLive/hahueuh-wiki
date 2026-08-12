@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Witch Factors &mdash; HahUeuh Wiki</title>
-<meta name="description" content="Witch Factors, miasma and Insanity in HahUeuh — and why a Witch Factor and a Divine Protection can never coexist.">
+<title>Witch Factors - HahUeuh Wiki</title>
+<meta name="description" content="Witch Factors, miasma and Insanity in HahUeuh, and why you can never hold a Witch Factor and a blessing at once.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -21,86 +21,76 @@
             <p class="crumbs"><a href="/">Home</a> / Divine Protections / Witch Factors</p>
             <h1>Witch Factors</h1>
             <p class="lede">
-                The counterpart to a Divine Protection, and its opposite in every sense. You cannot hold
-                both, and gaining one destroys the other.
+                The dark opposite of a blessing. You can never have both, and picking one up destroys
+                everything you had.
             </p>
 
-            <h2 id="exclusive">Mutually exclusive with protections</h2>
+            <h2 id="exclusive">They burn your blessings away</h2>
             <div class="note warn">
-                <strong>Gaining a Witch Factor burns away every Divine Protection you hold.</strong>
-                This is not a temporary suppression &mdash; the protections are gone. While you carry a
-                Witch Factor you also cannot be granted or roll a new one.
+                <strong>Gaining a Witch Factor destroys every Divine Protection you own.</strong>
+                This isn't temporary. They're gone. While you carry a Witch Factor you also can't be given
+                or roll a new one, so there's no rebuilding until the Factor is gone.
             </div>
             <p>
                 Each Witch Factor is tied to an <a href="/wiki/authorities.html">Authority</a>. Greed and
-                Sloth each have one, tracked separately from the Authority itself, and both are set by
-                <a href="/wiki/commands.html">command</a>.
+                Sloth both have one, tracked separately from the Authority itself, and both are handed out
+                by command.
             </p>
             <p>
-                By default a Witch Factor is <strong>not</strong> lost on death. Turn on
-                <code>loseWitchFactorOnDeath</code> if you want it to be.
+                Dying doesn't get rid of one unless your server turned that on.
             </p>
 
-            <h2 id="mobs">Witch Factor mobs</h2>
+            <h2 id="mobs">Mobs that carry them</h2>
             <p>
-                Mobs can carry Witch Factors, and by default they spawn naturally with a
-                <strong>1%</strong> chance. That spawn is <strong>sky-only</strong> &mdash; a factor mob will
-                not appear underground or in a roofed dimension, which is determined by whether the
-                dimension has a ceiling rather than by checking for the Nether by name.
+                Mobs can have Witch Factors too, and about one in a hundred spawns with one naturally. They
+                only appear under open sky, so you won't meet one in a cave, and never in a roofed dimension
+                like the Nether.
             </p>
             <p>
-                A factor mob seeks out players across dimensions. Its movement speed and how often it
-                re-targets are both configurable.
+                A Factor mob hunts players down, and it will follow you across dimensions to do it.
             </p>
 
             <h2 id="miasma">Miasma</h2>
             <p>
-                Miasma is the residue magic leaves behind. It accumulates in the chunk you are in, capped
-                at <strong>500</strong>, and decays over about <strong>3 days</strong>.
+                Miasma is the residue magic leaves behind. It builds up in whatever chunk you're casting in
+                and fades over roughly three in game days.
             </p>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Source</th><th>Miasma</th></tr></thead>
-                    <tbody>
-                        <tr><td>A single spell cast</td><td>1</td></tr>
-                        <tr><td>A sustained spell, per second</td><td>1</td></tr>
-                    </tbody>
-                </table>
+            <p>
+                Every spell you cast adds a little. Spells you hold up, like E.M.M. and E.M.T., add a little
+                every second they're running. Once a chunk gets about a third full it starts having effects.
+            </p>
+            <div class="note tip">
+                <strong>Miasma is why your spirit recruiting dried up.</strong>
+                Carrying it cuts your chance of a successful commune to roughly a third. Heavy casters
+                struggle to gather spirits for exactly this reason. Move somewhere clean and try again.
             </div>
             <p>
-                Once a chunk passes <strong>30%</strong> of the cap, its miasma starts having effects. The
-                most immediate consequence for a player is that carrying miasma cuts
-                <a href="/wiki/spirits.html">Spirit Commune</a> success to <strong>35%</strong> of what it
-                would otherwise be &mdash; spirits do not like it.
-            </p>
-            <p>
-                The Divine Protection of Anti-Malignance makes you inert to miasma entirely.
+                The Anti-Malignance blessing makes miasma do nothing to you at all.
             </p>
 
             <h2 id="insanity">Insanity</h2>
             <p>
-                Insanity is a tiered madness that escalates to level <strong>5</strong> by default. Each
-                episode lasts around <strong>30 seconds</strong> at the base tier, and higher tiers strike
-                far more often.
+                Insanity is madness that gets worse in stages, up to five. Episodes last about thirty
+                seconds at the bottom, and come much more often as it climbs.
             </p>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>Tier</th><th>What starts happening</th></tr></thead>
+                    <thead><tr><th>Stage</th><th>What starts happening</th></tr></thead>
                     <tbody>
-                        <tr><td>1&ndash;2</td><td>Episodes only.</td></tr>
-                        <tr><td>3+</td><td>Episodes draw blood. Like poison, it can never drop you below half a heart.</td></tr>
-                        <tr><td>4+</td><td>A <strong>35%</strong> chance an episode takes control of your body &mdash; the Bodily Disconnect flailing, without the blackout.</td></tr>
+                        <tr><td>1 to 2</td><td>Episodes, and nothing worse.</td></tr>
+                        <tr><td>3 and up</td><td>Episodes start hurting you. Like poison, it can't quite kill you.</td></tr>
+                        <tr><td>4 and up</td><td>Episodes can take control of your body. Roughly a one in three chance each time.</td></tr>
                     </tbody>
                 </table>
             </div>
             <p>
-                Each tier also draws miasma toward you, at <strong>400</strong> per tier.
+                Each stage also pulls miasma toward you, which makes the spirit problem above worse.
             </p>
             <div class="note">
-                <strong>Insanity survives a rollback on purpose.</strong>
-                It is deliberately exempt from <a href="/wiki/return-by-death.html">Return by Death</a>, so
-                the cost of looping accumulates across lives. Spending your last Od also drives it straight
-                to maximum.
+                <strong>Insanity survives a rewind on purpose.</strong>
+                <a href="/wiki/return-by-death.html">Return by Death</a> puts everything else back, but not
+                this. The cost of looping is meant to follow you across lives. Emptying your Od also sends
+                it straight to maximum.
             </div>
 
             <div class="page-nav"></div>
@@ -111,7 +101,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki &mdash; an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki. An unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Stats — HahUeuh Wiki</title>
-<meta name="description" content="The six HahUeuh stats, what each one actually changes, and how proficiency and capacity cap your growth.">
+<title>Stats - HahUeuh Wiki</title>
+<meta name="description" content="The six HahUeuh stats, what each one does for you, and the hidden ceiling you can never train past.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -21,115 +21,96 @@
             <p class="crumbs"><a href="/">Home</a> / Character / Stats</p>
             <h1>Stats</h1>
             <p class="lede">
-                Six stats, each rolled at birth with a ceiling you can never train past. They level by
-                being used — you cannot spend points.
+                Six stats that grow by being used. You can't spend points on them, and each one has a
+                ceiling you were born with.
             </p>
 
-            <h2 id="three-numbers">Proficiency, capacity and level</h2>
+            <h2 id="three-numbers">The three numbers on every stat</h2>
             <p>
-                Every stat carries three numbers. Confusing them is the most common mistake players make.
+                This trips up nearly everyone. Each stat has a level, which is what you've trained, and two
+                hidden numbers that were set when your character was born.
             </p>
-            <div class="table-wrap">
-                <table>
-                    <thead><tr><th>Number</th><th>Range</th><th>What it does</th></tr></thead>
-                    <tbody>
-                        <tr><td>Proficiency</td><td>1–10</td><td>How fast the stat gains experience. Rolled at birth.</td></tr>
-                        <tr><td>Capacity</td><td>1–10</td><td>How high the level may ever go. Rolled at birth.</td></tr>
-                        <tr><td>Level</td><td>0–100</td><td>What you have actually trained.</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <ul>
+                <li><strong>Your level</strong> is what you've actually earned. It's the big number on the
+                    bar, and it can reach 100 at most.</li>
+                <li><strong>Proficiency</strong> decides how fast that level goes up. Rolled from 1 to 10.</li>
+                <li><strong>Capacity</strong> decides how high it can ever go. Also rolled from 1 to 10.</li>
+            </ul>
             <p>
-                The level ceiling is <strong>capacity × 10</strong>. A stat rolled at capacity 3 stops at
-                level 30 forever; capacity 10 allows level 100. Each level takes <strong>100 progress</strong>,
-                and proficiency multiplies how much progress each action grants.
+                Your ceiling is your capacity times ten. Roll a 3 in Magic and you stop at level 30 for the
+                rest of that character's life, no matter how long you train. Roll a 10 and you can reach
+                100.
             </p>
             <div class="note">
-                <strong>Your starting level is not zero.</strong>
-                Stats begin at a multiple of their own roll, between <strong>1×</strong> and <strong>2×</strong>,
-                so a strong roll starts ahead as well as ending higher.
+                <strong>You don't start at zero.</strong>
+                Every stat begins somewhere between one and two times its own roll, so a good roll starts
+                you ahead as well as letting you finish higher.
             </div>
 
-            <h2 id="what-they-do">What each stat changes</h2>
+            <h2 id="what-they-do">What each stat gives you</h2>
             <p>
-                Every bonus below is the value at <em>maximum</em> for that stat — you receive a fraction of
-                it proportional to how far along you are. All are configurable defaults.
+                The numbers below are what you get at maximum. Along the way you receive a share of it
+                proportional to how far you've come.
             </p>
             <div class="table-wrap">
                 <table>
                     <thead><tr><th>Stat</th><th>At maximum</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td>Tenacity</td>
-                            <td>+112.5% max health, and +150% healing received.</td>
-                        </tr>
-                        <tr>
-                            <td>Fortitude</td>
-                            <td>52.5% incoming damage reduction.</td>
-                        </tr>
-                        <tr>
-                            <td>Strength</td>
-                            <td>+3 fist damage, +60% jump height, 75% less fall damage.</td>
-                        </tr>
-                        <tr>
-                            <td>Reflexes</td>
-                            <td>+37.5% movement speed, and +75% attack speed while unarmed.</td>
-                        </tr>
-                        <tr>
-                            <td>Magic</td>
-                            <td>+150% mana capacity, +150% charge rate, and +75% to Gate Output and Efficiency.</td>
-                        </tr>
-                        <tr>
-                            <td>Combat</td>
-                            <td>+90% damage and +52.5% attack speed — but only with a weapon in hand.</td>
-                        </tr>
+                        <tr><td>Tenacity</td><td>More than double your health, and healing works half again as well on you.</td></tr>
+                        <tr><td>Fortitude</td><td>Everything that hits you does about half damage.</td></tr>
+                        <tr><td>Strength</td><td>Punch for 3 more, jump 60% higher, take a quarter of the fall damage.</td></tr>
+                        <tr><td>Reflexes</td><td>Move much faster, and swing much faster when your hands are empty.</td></tr>
+                        <tr><td>Magic</td><td>Two and a half times the mana, gather it far quicker, and a stronger Gate.</td></tr>
+                        <tr><td>Combat</td><td>Almost double damage and much faster swings, but only with a weapon.</td></tr>
                     </tbody>
                 </table>
             </div>
             <div class="note tip">
                 <strong>Armed and unarmed use different stats.</strong>
-                With a weapon, your damage and attack speed come from <strong>Combat</strong>. Bare-handed,
-                they come from <strong>Strength</strong> and <strong>Reflexes</strong> instead. This is also
-                how the Unarmed Combat and Weapon God protections split.
+                Holding a weapon, your damage and speed come from Combat. Bare handed they come from
+                Strength and Reflexes. This is also why the Unarmed Combat and Weapon God blessings are two
+                separate things.
             </div>
 
-            <h2 id="training">How stats level</h2>
+            <h2 id="training">How to train them</h2>
             <p>
-                Experience is awarded for doing the thing the stat governs. There is no other way to raise a stat.
+                You train a stat by doing the thing it covers. There's no other way.
             </p>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>Action</th><th>Trains</th><th>Default XP</th></tr></thead>
+                    <thead><tr><th>Do this</th><th>Trains</th></tr></thead>
                     <tbody>
-                        <tr><td>Dealing damage with a weapon</td><td>Combat</td><td>2 per damage</td></tr>
-                        <tr><td>Dealing damage bare-handed</td><td>Strength</td><td>2 per damage</td></tr>
-                        <tr><td>Taking damage in armour</td><td>Fortitude</td><td>2 per damage</td></tr>
-                        <tr><td>Taking damage unarmoured</td><td>Tenacity</td><td>2 per damage</td></tr>
-                        <tr><td>Being healed</td><td>Tenacity</td><td>3 per health</td></tr>
-                        <tr><td>Blocking with a shield</td><td>Fortitude</td><td>3 per block</td></tr>
-                        <tr><td>Breaking a block by hand</td><td>Strength</td><td>2 each</td></tr>
-                        <tr><td>Sprinting</td><td>Reflexes</td><td>0.5 per block</td></tr>
-                        <tr><td>Spending mana</td><td>Magic</td><td>per 100 mana</td></tr>
-                        <tr><td>Charging mana</td><td>Magic</td><td>per 100 mana</td></tr>
+                        <tr><td>Hit things with a weapon</td><td>Combat</td></tr>
+                        <tr><td>Hit things with your fists</td><td>Strength</td></tr>
+                        <tr><td>Break blocks by hand</td><td>Strength</td></tr>
+                        <tr><td>Take hits while wearing armour</td><td>Fortitude</td></tr>
+                        <tr><td>Block with a shield</td><td>Fortitude</td></tr>
+                        <tr><td>Take hits with no armour on</td><td>Tenacity</td></tr>
+                        <tr><td>Get healed</td><td>Tenacity</td></tr>
+                        <tr><td>Sprint</td><td>Reflexes</td></tr>
+                        <tr><td>Spend mana, or gather it</td><td>Magic</td></tr>
                     </tbody>
                 </table>
             </div>
             <p>
-                The Divine Protection of Training multiplies all of it. The Divine Protection of Instruction
-                lets another player grant you a multiplier for one specific stat.
+                Two blessings speed this up. Training makes everything you do count for more. Instruction
+                lets another player boost one particular stat of yours.
             </p>
 
-            <h2 id="temporary">Temporary bonuses</h2>
+            <h2 id="temporary">Temporary boosts</h2>
             <p>
-                Several protections push a stat above its normal value for a while — Shedding Blood as you
-                lose health, Fireplay while you burn, Sun and Moon by time of day, Unarmed Combat and Weapon
-                God by what you are holding. In the <a href="/wiki/book-of-life.html">Book of Life</a> the
-                boosted total is the number shown, and the tooltip breaks out where the extra came from.
+                Several blessings push a stat above its normal value for a while. Shedding Blood does it as
+                you lose health, Fireplay while you're burning, Sun and Moon depending on the time of day,
+                and Unarmed Combat and Weapon God depending on what you're holding.
+            </p>
+            <p>
+                When that's happening, the <a href="/wiki/book-of-life.html">Book of Life</a> shows the
+                boosted number in green, and the tooltip splits out how much of it is real training and how
+                much is temporary.
             </p>
             <div class="note">
-                <strong>Bonuses may exceed the cap.</strong>
-                Temporary boosts are deliberately allowed past your capacity ceiling. The trained level
-                underneath is untouched.
+                <strong>Boosts can go over your ceiling.</strong>
+                That's deliberate. Your trained level underneath is untouched, so nothing is wasted.
             </div>
 
             <div class="page-nav"></div>
@@ -140,7 +121,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki — an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki. An unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>

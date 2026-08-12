@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Return by Death &mdash; HahUeuh Wiki</title>
-<meta name="description" content="How Return by Death checkpoints and rewinds the world in HahUeuh, what survives a rollback, and how to tune it.">
+<title>Return by Death - HahUeuh Wiki</title>
+<meta name="description" content="How Return by Death rewinds the world in HahUeuh, when it saves, what survives, and what it costs you.">
 <link rel="stylesheet" href="/assets/site.css">
 <script src="/assets/nav.js"></script>
 <script src="/assets/site.js"></script>
@@ -21,95 +21,105 @@
             <p class="crumbs"><a href="/">Home</a> / Authorities / Return by Death</p>
             <h1>Return by Death</h1>
             <p class="lede">
-                The world checkpoints itself as you play. When you die it rewinds &mdash; terrain, mobs,
-                weather, other players &mdash; and only you remember it happened.
+                The world quietly saves itself while you play. When you die it goes back to that save, and
+                you're the only one who knows it happened.
             </p>
 
-            <h2 id="how-it-works">How it works</h2>
+            <h2 id="how-it-works">What actually happens</h2>
             <p>
-                While players are online the mod quietly captures the state of the world. When a holder of
-                Return by Death dies, everything is restored to the last checkpoint: block changes,
-                entities, the time of day, the weather, and every other player's position and inventory.
+                Every so often the game takes a snapshot of the world. When someone with this Authority
+                dies, everything goes back to how it was at that snapshot. The blocks you broke are whole
+                again. Mobs you killed are alive. The sun is back where it was, the weather is back to what
+                it was, and every other player is standing where they were standing with the inventory they
+                had.
+            </p>
+            <p>
+                You keep your memory. Nobody else does.
             </p>
             <div class="note warn">
-                <strong>A rollback is not personal.</strong>
-                Everyone on the server loses whatever they did since the checkpoint, not just you.
+                <strong>This happens to everyone, not just you.</strong>
+                Every other player on the server loses whatever they did in that time too. On a busy server
+                this is the single most important thing to understand about the mod.
             </div>
 
-            <h2 id="checkpoints">When checkpoints happen</h2>
+            <h2 id="checkpoints">When the world saves</h2>
             <p>
-                Three separate things can trigger one, and each rolls a chance rather than firing every
-                time &mdash; so the exact moment cannot be predicted or farmed.
+                Three things can trigger a save, and none of them is guaranteed. Each has a four in five
+                chance of actually firing, so you can never be quite sure when your last one was.
             </p>
             <div class="table-wrap">
                 <table>
-                    <thead><tr><th>Trigger</th><th>Chance</th><th>Notes</th></tr></thead>
+                    <thead><tr><th>Trigger</th><th>How often</th></tr></thead>
                     <tbody>
-                        <tr><td>Timer</td><td>80%</td><td>Every <strong>60 seconds &plusmn; 15</strong>.</td></tr>
-                        <tr><td>Earning an advancement</td><td>80%</td><td>Real advancements only &mdash; recipe unlocks are filtered out.</td></tr>
-                        <tr><td>Sleeping</td><td>80%</td><td></td></tr>
+                        <tr><td>A timer</td><td>Roughly every minute</td></tr>
+                        <tr><td>Earning an advancement</td><td>When it happens</td></tr>
+                        <tr><td>Sleeping</td><td>When it happens</td></tr>
                     </tbody>
                 </table>
             </div>
+            <p>Some things worth knowing:</p>
             <ul>
-                <li><strong>No checkpoint is taken while the server is empty.</strong> This is deliberate,
-                    so a single-player world does not silently drift while you are away.</li>
-                <li>A checkpoint is deferred while any player has a container open, for up to
-                    <strong>60 seconds</strong>, so it cannot catch a half-finished inventory move.</li>
-                <li>Capture runs on a background thread, so it should not stutter the game.</li>
-                <li>Players are <strong>not</strong> notified by default. Turn on
-                    <code>showCheckpointNotification</code> if you want the message.</li>
+                <li><strong>Nothing saves while the server is empty.</strong> Your world won't quietly drift
+                    while nobody's playing.</li>
+                <li>A save waits if anyone has a chest or crafting table open, so it can't catch you halfway
+                    through moving items.</li>
+                <li>Saving runs in the background. If your game stutters every minute, you're on an old
+                    version and should update.</li>
+                <li>You aren't told when a save happens, though a server can turn that message on. It's
+                    genuinely helpful while you're learning the mod.</li>
             </ul>
             <p>
-                You can also force one at any time with <code>/rezero checkpoint</code>.
+                An admin can force a save at any time with <code>/rezero checkpoint</code>.
             </p>
+            <div class="note tip">
+                <strong>If a rewind seems not to have moved anyone, it probably just saved recently.</strong>
+                The most common confusion here isn't a broken rewind, it's a save that happened five seconds
+                before you died.
+            </div>
 
-            <h2 id="whats-preserved">What survives a rewind</h2>
+            <h2 id="whats-preserved">What doesn't get rewound</h2>
             <p>
-                A handful of things are deliberately exempt, because rewinding them would be either
-                meaningless or actively broken:
+                A few things deliberately survive, because rewinding them would either be pointless or would
+                break something:
             </p>
             <ul>
-                <li><strong>Your memory of the loop</strong>, and the Insanity that accumulates with it.</li>
-                <li><strong>Pocket dimensions</strong> &mdash; Door Crossing rooms and Al Shamak cells.</li>
-                <li><strong>The world's game time.</strong> Only the visible time of day is rewound; the
-                    underlying monotonic clock is not, because rewinding it breaks command blocks and
-                    desyncs every cooldown in the game.</li>
-                <li>Other mods' live databases, which are skipped rather than corrupted.</li>
+                <li><strong>Your memory of the loop</strong>, and the Insanity that builds up alongside it.
+                    The cost of looping is meant to carry across lives.</li>
+                <li><strong>Pocket dimensions.</strong> Door Crossing rooms and Al Shamak cells stay as they
+                    were.</li>
+                <li><strong>The world's internal clock.</strong> Only the visible time of day moves back.
+                    Winding the real clock backwards breaks command blocks and every cooldown in the game.</li>
+                <li>Other mods' live data files, which are left alone rather than corrupted.</li>
             </ul>
 
             <h2 id="witch-scent">Witch's Scent</h2>
             <p>
-                Rewinding leaves a mark. Witch's Scent builds up on a looping player &mdash; to a maximum of
-                <strong>5</strong> levels by default &mdash; and it is not subtle: it makes you notably worse
-                at <a href="/wiki/spirits.html">communing with spirits</a>, cutting success to
-                <strong>35%</strong> of what it would be.
+                Looping leaves a mark on you. Witch's Scent builds up each time, to a maximum of five
+                levels, and it isn't cosmetic: it makes
+                <a href="/wiki/spirits.html">spirits</a> far less willing to deal with you, cutting your
+                commune chances to about a third.
             </p>
             <p>
-                It can be disabled entirely with <code>witchScentEnabled</code>.
+                If you're trying to build a spirit contractor, dying a lot will actively work against you.
+                Servers can switch this off.
             </p>
 
-            <h2 id="limits">Limits</h2>
+            <h2 id="limits">What still kills you</h2>
             <p>
-                Return by Death makes death a reset, not an immunity. Things that resolve first:
+                Return by Death turns death into a reset, not into immunity. These resolve first:
             </p>
             <ul>
                 <li>Being sealed by <a href="/wiki/spells.html">Ol Shamak</a>.</li>
                 <li>Being frozen by <a href="/wiki/greed.html">Lion's Heart</a>.</li>
-                <li>The <a href="/wiki/divine-protections.html">Phoenix</a> protection, which revives you
-                    instead of letting the death happen at all.</li>
+                <li>Holding <a href="/wiki/divine-protections.html">Phoenix</a>, which revives you rather
+                    than letting the death happen at all.</li>
             </ul>
-            <div class="note">
-                <strong>Dying on the death screen is a real state.</strong>
-                A player who is rolled back before clicking respawn used to be locked out permanently.
-                If you are running an older build and see this, update.
-            </div>
 
-            <h2 id="config">Tuning it</h2>
+            <h2 id="config">Turning it down</h2>
             <p>
-                Everything above lives in the Return by Death config: each trigger can be switched off
-                independently, the interval and its randomness are adjustable, and the whole Authority can
-                be disabled. See <a href="/wiki/configuration.html">Configuration</a>.
+                Every part of this is adjustable. Each of the three triggers can be switched off on its own,
+                the timer can be made slower or faster, the notification can be turned on, and the whole
+                Authority can be disabled. See <a href="/wiki/configuration.html">Configuration</a>.
             </p>
 
             <div class="page-nav"></div>
@@ -120,7 +130,7 @@
 
 <footer class="site">
     <div class="inner">
-        <span>HahUeuh Wiki &mdash; an unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
+        <span>HahUeuh Wiki. An unofficial fan project. Re:Zero is the property of its respective rights holders.</span>
         <span><a href="https://github.com/NoiiLive/hahueuh">Mod source</a></span>
     </div>
 </footer>
